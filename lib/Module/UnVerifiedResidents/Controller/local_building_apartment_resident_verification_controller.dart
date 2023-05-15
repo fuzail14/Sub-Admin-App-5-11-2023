@@ -87,7 +87,7 @@ class LocalBuildingApartmentResidentVerificationController
     print(type);
 
     var response = await Dio().get(
-        Api.housesapartmentmeasurements +
+        Api.housesApartmentMeasurements +
             '/' +
             subadminid.toString() +
             '/' +
@@ -116,7 +116,7 @@ class LocalBuildingApartmentResidentVerificationController
   Future<List<Localbuilding>> viewAllBuildingApi(
       {required type, required bearerToken}) async {
     var response = await Dio().get(
-        Api.view_all_societies + '/' + type.toString(),
+        Api.viewAllSocieties + '/' + type.toString(),
         options: Options(headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${bearerToken}"
@@ -140,7 +140,7 @@ class LocalBuildingApartmentResidentVerificationController
       {required buildingid, required bearerToken}) async {
     print(buildingid);
     var response = await Dio().get(
-        Api.view_local_building_floors + '/' + buildingid.toString(),
+        Api.viewLocalBuildingFloors + '/' + buildingid.toString(),
         options: Options(headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${bearerToken}"
@@ -162,7 +162,7 @@ class LocalBuildingApartmentResidentVerificationController
       {required floorid, required bearerToken}) async {
     print(floorid);
     var response = await Dio().get(
-        Api.view_local_building_apartments + '/' + floorid.toString(),
+        Api.viewLocalBuildingApartments + '/' + floorid.toString(),
         options: Options(headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${bearerToken}"
@@ -241,7 +241,7 @@ class LocalBuildingApartmentResidentVerificationController
     houseaddress,
     required String token,
   }) async {
-    final response = await Http.post(Uri.parse(Api.verifylocalbuildingapartmentresident),
+    final response = await Http.post(Uri.parse(Api.verifyLocalBuildingApartmentResident),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': "Bearer $token"

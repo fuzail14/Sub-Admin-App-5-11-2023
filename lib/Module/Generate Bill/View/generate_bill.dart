@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:societyadminapp/Module/Generate%20Bill/Controller/generate_bill_controller.dart';
+import 'package:societyadminapp/Routes/set_routes.dart';
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 
 import '../../../Constants/constants.dart';
@@ -21,81 +22,91 @@ class GenerateBill extends GetView {
       return SafeArea(
 
 
-        child: Scaffold(
+        child: WillPopScope(
+          onWillPop: ()async{
+
+            Get.offAndToNamed(generatedbill,arguments: controller.user);
+            return true;
+          },
+          child: Scaffold(
 
 
-          body: SingleChildScrollView(
-            child: Form(
-              key:_formKey ,
-              child: Column(children: [
+            body: SingleChildScrollView(
+              child: Form(
+                key:_formKey ,
+                child: Column(children: [
 
-              MyBackButton(text: 'Generate Bill',),
-              SizedBox(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.04,
-              ),
-              SvgPicture.asset(
-                "assets/notices_vector.svg",
-              ),
-              SizedBox(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.04,
-              ),
-              MyTextFormField(
-
-                  onTap: () {
-                    controller.chooseBillStartDate(context);
-                  },
-                  suffixIcon: SvgPicture.asset(
-                      "assets/add_event_icon.svg",
-
-                      fit: BoxFit.scaleDown
-                  ),
-                  fillColor: Colors.white,
-                  controller: controller.bill_start_date,
-                  validator: emptyStringValidator,
-                  hintText: 'Choose Bill Start Date',
-                  labelText: 'Choose Bill Start Date',
+                MyBackButton(text: 'Generate Bill',onTap: (){
+                  Get.offAndToNamed(generatedbill,arguments: controller.user);
 
 
-              ),
-
-              MyTextFormField(
-
-                  onTap: () {
-                    controller.chooseBillEndDate(context);
-                  },
-                  suffixIcon: SvgPicture.asset(
-                      "assets/add_event_icon.svg",
-
-                      fit: BoxFit.scaleDown
-                  ),
-                  fillColor: Colors.white,
-                  controller: controller.bill_end_date,
-                  validator: emptyStringValidator,
-                  hintText: 'Choose Bill END Date',
-                  labelText: 'Choose Bill END Date',
+                },),
+                SizedBox(
+                  height: MediaQuery
+                      .of(context)
+                      .size
+                      .height * 0.04,
                 ),
-              MyTextFormField(
-
-                  onTap: () {
-                    controller.chooseBillDueDate(context);
-                  },
-                  suffixIcon: SvgPicture.asset(
-                      "assets/add_event_icon.svg",
-
-                      fit: BoxFit.scaleDown
-                  ),
-                  fillColor: Colors.white,
-                  controller: controller.bill_due_date,
-                  validator: emptyStringValidator,
-                  hintText: 'Choose Bill Due Date',
-                  labelText: 'Choose Bill Due Date',
+                SvgPicture.asset(
+                  "assets/notices_vector.svg",
                 ),
+                SizedBox(
+                  height: MediaQuery
+                      .of(context)
+                      .size
+                      .height * 0.04,
+                ),
+                MyTextFormField(
+
+                    onTap: () {
+                      controller.chooseBillStartDate(context);
+                    },
+                    suffixIcon: SvgPicture.asset(
+                        "assets/add_event_icon.svg",
+
+                        fit: BoxFit.scaleDown
+                    ),
+                    fillColor: Colors.white,
+                    controller: controller.bill_start_date,
+                    validator: emptyStringValidator,
+                    hintText: 'Choose Bill Start Date',
+                    labelText: 'Choose Bill Start Date',
+
+
+                ),
+
+                MyTextFormField(
+
+                    onTap: () {
+                      controller.chooseBillEndDate(context);
+                    },
+                    suffixIcon: SvgPicture.asset(
+                        "assets/add_event_icon.svg",
+
+                        fit: BoxFit.scaleDown
+                    ),
+                    fillColor: Colors.white,
+                    controller: controller.bill_end_date,
+                    validator: emptyStringValidator,
+                    hintText: 'Choose Bill END Date',
+                    labelText: 'Choose Bill END Date',
+                  ),
+                MyTextFormField(
+
+                    onTap: () {
+                      controller.chooseBillDueDate(context);
+                    },
+                    suffixIcon: SvgPicture.asset(
+                        "assets/add_event_icon.svg",
+
+                        fit: BoxFit.scaleDown
+                    ),
+                    fillColor: Colors.white,
+                    controller: controller.bill_due_date,
+                    validator: emptyStringValidator,
+                    hintText: 'Choose Bill Due Date',
+                    labelText: 'Choose Bill Due Date',
+                  ),
 
 MyButton(name: 'Generate', onPressed:controller.isLoading?null: () async{
 
@@ -117,9 +128,10 @@ MyButton(name: 'Generate', onPressed:controller.isLoading?null: () async{
 
 },)
 
-        ],),
-            ),
-          ),)
+          ],),
+              ),
+            ),),
+        )
         ,
 
       );

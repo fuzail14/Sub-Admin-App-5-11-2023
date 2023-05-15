@@ -1,14 +1,10 @@
-import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
 import '../../../Services/Shared Preferences/MySharedPreferences.dart';
-import '../../AddSocietyDetail/Phases/Model/Phases.dart';
 import '../../Login/Model/SocietyModel.dart';
 import '../../Login/Model/User.dart';
 
@@ -39,7 +35,7 @@ class HomeScreenController extends GetxController {
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.unverifiedresidentcount.toString() +
+      Uri.parse(Api.unverifiedResidentCount.toString() +
           '/' +
           subadminid.toString() +
           '/' +

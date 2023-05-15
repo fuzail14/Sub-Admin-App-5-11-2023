@@ -115,7 +115,7 @@ class LoginController extends GetxController {
 
     try {
       final response = await Http.post(
-        Uri.parse(Api.fcmtokenrefresh),
+        Uri.parse(Api.fcmTokenRefresh),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': "Bearer $bearertoken"
@@ -143,7 +143,7 @@ class LoginController extends GetxController {
 
   viewSocietyApi(int societyid, String token) async {
     final response = await Http.get(
-      Uri.parse(Api.view_society_api + "/" + societyid.toString()),
+      Uri.parse(Api.viewSocietyApi + "/" + societyid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

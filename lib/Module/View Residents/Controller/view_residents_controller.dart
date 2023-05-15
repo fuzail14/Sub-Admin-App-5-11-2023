@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
@@ -7,7 +6,6 @@ import 'package:societyadminapp/Routes/set_routes.dart';
 import '../../../Constants/api_routes.dart';
 import '../../../Constants/constants.dart';
 import '../../../Widgets/My Button/my_button.dart';
-import '../../HomeScreen/Controller/home_screen_controller.dart';
 import '../../Login/Model/User.dart';
 import '../Model/Resident.dart';
 
@@ -29,12 +27,12 @@ class ViewResidentController extends GetxController {
 
   }
 
-  viewResidentsApi(int subadminiid, String token) async {
-    print(subadminiid.toString());
+  viewResidentsApi(int subAdminId, String token) async {
+    print(subAdminId.toString());
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.view_residents + "/" +subadminiid.toString()),
+      Uri.parse(Api.viewResidents + "/" +subAdminId.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"
@@ -81,7 +79,7 @@ class ViewResidentController extends GetxController {
     print(query);
 
     final response = await Http.get(
-      Uri.parse(Api.search_residents + "/" +subadminiid.toString()+"/"+query.toString()),
+      Uri.parse(Api.searchResidents + "/" +subadminiid.toString()+"/"+query.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"
@@ -123,7 +121,7 @@ class ViewResidentController extends GetxController {
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.delete_resident + "/" + residentid.toString()),
+      Uri.parse(Api.deleteResident + "/" + residentid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

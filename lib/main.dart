@@ -8,7 +8,6 @@ import 'package:societyadminapp/Routes/set_routes.dart';
 
 import 'Module/Generate Bill/View/generate_bill.dart';
 import 'Module/HomeScreen/Controller/home_screen_controller.dart';
-import 'Module/Payments/payments.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();

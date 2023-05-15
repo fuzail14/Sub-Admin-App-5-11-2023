@@ -33,7 +33,7 @@ class NoticeBoardController extends GetxController {
     
 
     final response = await Http.get(
-      Uri.parse(Api.viewallnoticesapi + "/" + subadminid.toString()),
+      Uri.parse(Api.viewAllNotices + "/" + subadminid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"
@@ -87,7 +87,7 @@ update();
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.deletenotice + "/" + noticeid.toString()),
+      Uri.parse(Api.deleteNotice + "/" + noticeid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

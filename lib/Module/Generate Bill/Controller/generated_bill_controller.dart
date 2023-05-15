@@ -29,7 +29,7 @@ class GeneratedBillController extends GetxController
   generatedBillApi(
       int subadminid, String token) async {
     final response = await Http.get(
-      Uri.parse(Api.generatedbill + "/" + subadminid.toString()),
+      Uri.parse(Api.generatedBill + "/" + subadminid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

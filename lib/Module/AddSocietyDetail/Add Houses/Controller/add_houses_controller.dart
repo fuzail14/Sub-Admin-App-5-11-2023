@@ -105,7 +105,7 @@ class AddHousesController extends GetxController {
     }
 
     Map<String, String> headers = {"Authorization": "Bearer $bearerToken"};
-    var request = Http.MultipartRequest('POST', Uri.parse(Api.addproperties));
+    var request = Http.MultipartRequest('POST', Uri.parse(Api.addProperties));
     request.headers.addAll(headers);
     request.fields['from'] = from;
     request.fields['to'] = to;

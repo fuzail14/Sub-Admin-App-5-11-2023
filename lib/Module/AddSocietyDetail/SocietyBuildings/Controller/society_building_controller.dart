@@ -60,7 +60,7 @@ class SocietyBuildingController extends GetxController {
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.societybuildings +
+      Uri.parse(Api.societyBuildings +
           "/" +
           dynamicid.toString() +
           "/" +

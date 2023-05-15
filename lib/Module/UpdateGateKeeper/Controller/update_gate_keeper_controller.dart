@@ -1,12 +1,15 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 import 'package:image_picker/image_picker.dart';
-import 'package:societyadminapp/Module/GateKepeer/Model/gate_keeper_model.dart';
 import 'package:societyadminapp/Routes/set_routes.dart';
+
 import '../../../Constants/api_routes.dart';
+import '../../GateKepeer/Model/gate_keeper_model.dart';
 import '../../Login/Model/User.dart';
+
 class UpdateGateKeeperController extends GetxController {
   var argument = Get.arguments;
   late final Gatekeeper gatekeeper;
@@ -88,14 +91,13 @@ class UpdateGateKeeperController extends GetxController {
     print(gatekeeperaddress);
     print(bearerToken.toString());
     print(image);
-    isLoading=true;
+    isLoading = true;
     update();
-
 
     Map<String, String> headers = {"Authorization": "Bearer $bearerToken"};
 
     var request =
-        Http.MultipartRequest('POST', Uri.parse(Api.update_gatekeeper));
+        Http.MultipartRequest('POST', Uri.parse(Api.updateGatekeeper));
     request.headers.addAll(headers);
     if (image != null) {
       request.files.add(await Http.MultipartFile.fromPath('image', image.path));
@@ -116,12 +118,6 @@ class UpdateGateKeeperController extends GetxController {
       print(response.body.toString());
 
       Get.offAndToNamed(gatekeeperscreen, arguments: user);
-    } else {
-
-
-    }
+    } else {}
   }
-
-
-
 }

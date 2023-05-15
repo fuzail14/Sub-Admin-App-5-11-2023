@@ -197,6 +197,34 @@ class AddMeasurements extends GetView {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
+                                    'Late Charges',
+                                    style: GoogleFonts.ubuntu(
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width * .4,
+                                    child: TextFormField(
+                                      validator: emptyStringValidator,
+                                      controller: controller
+                                          .lateChargesController,
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                        fillColor: Colors.white10,
+                                        filled: true,
+                                        border: InputBorder.none,
+                                        hintText: 'Late Charges',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
                                     'App Charges',
                                     style: GoogleFonts.ubuntu(
                                       fontStyle: FontStyle.normal,
@@ -341,7 +369,7 @@ class AddMeasurements extends GetView {
                                                     .appChargesController.text,
                                                 serviceChargesAfterDueDate: controller
                                                     .chargesAfterDueDateController
-                                                    .text,
+                                                    .text,lateCharges: controller.lateChargesController.text,
                                                 tax: controller
                                                     .taxController.text);
                                             FocusManager.instance.primaryFocus

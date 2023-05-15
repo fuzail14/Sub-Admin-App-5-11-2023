@@ -122,7 +122,7 @@ class AddResidentController extends GetxController {
     print("---------------------------");
     Map<String, String> headers = {"Authorization": "Bearer $bearerToken"};
     var request =
-        Http.MultipartRequest('POST', Uri.parse(Api.register_resident));
+        Http.MultipartRequest('POST', Uri.parse(Api.registerResident));
     request.headers.addAll(headers);
 
     request.files.add(await Http.MultipartFile.fromPath('image', file.path));

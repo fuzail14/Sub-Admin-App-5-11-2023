@@ -86,7 +86,7 @@ class AddBlockController extends GetxController {
     }
 
     Map<String, String> headers = {"Authorization": "Bearer $bearerToken"};
-    var request = Http.MultipartRequest('POST', Uri.parse(Api.addblocks));
+    var request = Http.MultipartRequest('POST', Uri.parse(Api.addBlocks));
     request.headers.addAll(headers);
     request.fields['from'] = from;
 

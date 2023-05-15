@@ -48,7 +48,7 @@ class HouseResidentVerificationController extends GetxController {
     print(dynamicId);
 
     var response = await Dio().get(
-        Api.view_all_phases + '/' + dynamicId.toString(),
+        Api.viewAllPhases + '/' + dynamicId.toString(),
         options: Options(headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${bearerToken}"
@@ -126,7 +126,7 @@ class HouseResidentVerificationController extends GetxController {
     print(dynamicId);
 
     var response = await Dio().get(
-        Api.view_properties_for_residents +
+        Api.viewPropertiesForResidents +
             '/' +
             dynamicId.toString() +
             '/' +
@@ -239,7 +239,7 @@ class HouseResidentVerificationController extends GetxController {
     print(type);
 
     var response = await Dio().get(
-        Api.housesapartmentmeasurements +
+        Api.housesApartmentMeasurements +
             '/' +
             subadminid.toString() +
             '/' +
@@ -409,7 +409,7 @@ class HouseResidentVerificationController extends GetxController {
     houseaddress,
     required String token,
   }) async {
-    final response = await Http.post(Uri.parse(Api.verifyhouseresident),
+    final response = await Http.post(Uri.parse(Api.verifyHouseResident),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': "Bearer $token"

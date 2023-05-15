@@ -94,7 +94,7 @@ class AddNoticeBoardScreenController extends GetxController {
     isLoading = true;
     update();
     final response = await Http.post(
-      Uri.parse(Api.addnoticeboarddetail),
+      Uri.parse(Api.addNoticeboardDetail),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $bearerToken"

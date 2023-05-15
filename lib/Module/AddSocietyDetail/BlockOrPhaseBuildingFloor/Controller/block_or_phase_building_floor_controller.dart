@@ -34,7 +34,7 @@ class BlockOrPhaseBuildingFloorsController extends GetxController {
     
 
     final response = await Http.get(
-      Uri.parse(Api.viewsocietybuildingfloors + "/" + buildingid.toString()),
+      Uri.parse(Api.viewSocietyBuildingFloors + "/" + buildingid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

@@ -3,12 +3,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as Http;
 import 'package:image_picker/image_picker.dart';
 import 'package:societyadminapp/Routes/set_routes.dart';
 
 import '../../../Constants/api_routes.dart';
 import '../../Login/Model/User.dart';
-import 'package:http/http.dart' as Http;
 
 class AddGateKepeerScreenController extends GetxController {
   final formKey = new GlobalKey<FormState>();
@@ -28,12 +28,12 @@ class AddGateKepeerScreenController extends GetxController {
   File? imageFile;
 
   var arguments = Get.arguments;
-late  final User? user;
+  late final User? user;
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    user=arguments;
+    user = arguments;
   }
 
   getFromGallery(ImageSource source) async {
@@ -81,15 +81,13 @@ late  final User? user;
     required String bearerToken,
     required int subadminid,
     required int societyid,
-    
-    
   }) async {
-    isLoading=true;
+    isLoading = true;
     update();
 
     Map<String, String> headers = {"Authorization": "Bearer $bearerToken"};
     var request =
-        Http.MultipartRequest('POST', Uri.parse(Api.register_gatekeeper));
+        Http.MultipartRequest('POST', Uri.parse(Api.registerGatekeeper));
     request.headers.addAll(headers);
 
     request.files.add(await Http.MultipartFile.fromPath('image', file.path));
@@ -104,7 +102,6 @@ late  final User? user;
     request.fields['gateno'] = gateno;
     request.fields['subadminid'] = subadminid.toString();
     request.fields['societyid'] = societyid.toString();
-    
 
     var responsed = await request.send();
     var response = await Http.Response.fromStream(responsed);
@@ -118,7 +115,7 @@ late  final User? user;
       Get.snackbar("GateKeeper Register Successfully", "");
       Get.offAndToNamed(gatekeeperscreen, arguments: user);
     } else if (response.statusCode == 403) {
-      isLoading=false;
+      isLoading = false;
       update();
       var data = jsonDecode(response.body.toString());
 
@@ -127,16 +124,15 @@ late  final User? user;
         data.toString(),
       );
     } else {
-      isLoading=false;
+      isLoading = false;
       update();
-
 
       Get.snackbar("Failed to Register", "");
     }
   }
+
   void togglePasswordView() {
     isHidden = !isHidden;
     update();
   }
-
 }

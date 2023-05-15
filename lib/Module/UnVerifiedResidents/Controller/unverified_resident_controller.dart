@@ -29,7 +29,7 @@ class UnVerifiedResidentController extends GetxController {
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.unverifiedhouseresident.toString() +
+      Uri.parse(Api.unverifiedHouseResident.toString() +
           '/' +
           subadminid.toString() +
           '/' +
@@ -56,7 +56,7 @@ class UnVerifiedResidentController extends GetxController {
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.unverifiedapartmentresident.toString() +
+      Uri.parse(Api.unverifiedApartmentResident.toString() +
           '/' +
           subadminid.toString() +
           '/' +
@@ -84,7 +84,7 @@ class UnVerifiedResidentController extends GetxController {
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.unverifiedlocalbuildingapartmentresident.toString() +
+      Uri.parse(Api.unverifiedLocalBuildingApartmentResident.toString() +
           '/' +
           subadminid.toString() +
           '/' +

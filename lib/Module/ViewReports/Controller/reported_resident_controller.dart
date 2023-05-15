@@ -34,7 +34,7 @@ class ResidentsListController extends GetxController {
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.reportedresidents + "/" + subadminid.toString()),
+      Uri.parse(Api.reportedResidents + "/" + subadminid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

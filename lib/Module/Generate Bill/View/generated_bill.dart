@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:societyadminapp/Widgets/Loader/loader.dart';
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
-
 import '../../../Routes/set_routes.dart';
-import '../../../Widgets/My Button/my_button.dart';
 import '../Controller/generated_bill_controller.dart';
 
 class GeneratedBill extends StatelessWidget {
@@ -54,7 +52,7 @@ class GeneratedBill extends StatelessWidget {
                                       border: TableBorder(
                                           borderRadius: BorderRadius.circular(8)),
                                       columns: [
-                                        DataColumn(label: Text('Name')),
+                                        DataColumn(label: Text('Name',)),
                                         DataColumn(label: Text('DueDate')),
                                         DataColumn(label: Text('Charges')),
                                         DataColumn(label: Text('Status')),
@@ -68,24 +66,23 @@ class GeneratedBill extends StatelessWidget {
                                             return
                                               DataRow(cells: [
 
-                                              DataCell(Text('${e.user.first.firstname  }${''}${e.user.first.lastname}')),
+                                              DataCell(Text('${e.user.first.firstname  }${' '}${e.user.first.lastname}')),
 
                                                 DataCell(Text(e.duedate.toString())),
-                                              DataCell(Text(e.charges.toString())),
+                                              DataCell(Text(e.payableamount.toString())),
                                               DataCell(
                                                 e.status==0?
+                                                BillStatusWidget(text: 'unpaid',color: Colors.amber,):
+                                                e.status==1?
+                                                BillStatusWidget(text: 'paid',color: Colors.green,):
+                                                e.status==2?
+                                                BillStatusWidget(text: 'late',color: Colors.red,):
+                                                    Container()
 
-                                                Container(
-                                                  width:80,height:20,
+                                              ),
+                                                DataCell(IconButton(icon: Icon(Icons.info), onPressed: () {
 
-                                                  child:
-                                                  Center(child: Text('Pending')),decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(8)),):
-                                                Container(
-                                                  width:80,height:20,
-
-                                                  child:
-                                                  Center(child: Text('Paid')),decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),)),
-                                                DataCell(IconButton(icon: Icon(Icons.info), onPressed: () {  },)),
+                                                },)),
                                             ]);
                                       }
 
@@ -106,10 +103,34 @@ class GeneratedBill extends StatelessWidget {
                       iconSize: MediaQuery.of(context).size.height * 0.065,
                       icon: SvgPicture.asset('assets/floatingbutton.svg'),
                       onPressed: () {
-                        Get.toNamed(generatebill, arguments: controller.user);
+                        Get.offAndToNamed(generatebill, arguments: controller.user);
                       })),
             );
           }),
+    );
+  }
+}
+
+class BillStatusWidget extends StatelessWidget {
+
+  final String? text;
+  final Color?  color;
+
+   BillStatusWidget({super.key,required this.text,required this.color});
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: Container(
+        width:MediaQuery.of(context).size.width*0.2,
+        height:MediaQuery.of(context).size.height*0.05,
+        child: Center(child: Text(text.toString(),
+          style:GoogleFonts.montserrat(color: Colors.white,fontWeight: FontWeight.w500),)),
+          decoration: BoxDecoration(color:color,
+              borderRadius: BorderRadius.circular(8)),),
     );
   }
 }

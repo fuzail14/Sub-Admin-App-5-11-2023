@@ -33,7 +33,7 @@ class LocalBuildingApartmentController extends GetxController {
     print(bearerToken);
 
     final response = await Http.get(
-      Uri.parse(Api.view_local_building_apartments + "/" + fid.toString()),
+      Uri.parse(Api.viewLocalBuildingApartments + "/" + fid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $bearerToken"

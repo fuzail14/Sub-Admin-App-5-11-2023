@@ -89,7 +89,7 @@ generateBillApi({
   //
   // print(jsonEncode(results));
   final response = await Http.post(
-    Uri.parse(Api.generatebill),
+    Uri.parse(Api.generateBill),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
       'Authorization': "Bearer $bearerToken"
@@ -113,13 +113,20 @@ generateBillApi({
 
     Get.snackbar("Success", "Bill Generated Successfully");
 
-    Get.offNamed(generatedbill,arguments: userdata);
+    Get.offNamed(generatedbill,arguments: user);
     isLoading=false;
     update();
   }
   else if (response.statusCode == 400) {
 
     Get.snackbar("WARNING", "A bill has already been generated for this user in this month");
+
+    isLoading=false;
+    update();
+  }
+  else if (response.statusCode == 403) {
+var data=jsonDecode(response.body.toString());
+    Get.snackbar("WARNING",(data['errors']as List).map((e) => e.toString()).toString() );
 
     isLoading=false;
     update();

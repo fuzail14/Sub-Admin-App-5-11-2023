@@ -76,7 +76,7 @@ print(query);
 
    isSearch=true;
     final response = await Http.get(
-      Uri.parse(Api.searchevent + "/" + userid.toString()+"/"+query),
+      Uri.parse(Api.searchEvent + "/" + userid.toString()+"/"+query),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"
@@ -120,7 +120,7 @@ print(selectedImages);
 
   {"Authorization": "Bearer 6|PY7c88dIPMxkyIT34ZzhYFtEhOhY7nVzDGu1xLpF"};
 
-  var request = Http.MultipartRequest('POST', Uri.parse(Api.add_event_images));
+  var request = Http.MultipartRequest('POST', Uri.parse(Api.addEventImages));
   request.headers.addAll(headers);
 
 
@@ -153,7 +153,7 @@ print(selectedImages);
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.delete_event + "/" + eventid.toString()),
+      Uri.parse(Api.deleteEvent + "/" + eventid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

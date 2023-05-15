@@ -31,7 +31,7 @@ class LocalBuildingFloorsController extends GetxController {
     print(token);
 
     final response = await Http.get(
-      Uri.parse(Api.view_local_building_floors + "/" + buildingid.toString()),
+      Uri.parse(Api.viewLocalBuildingFloors + "/" + buildingid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

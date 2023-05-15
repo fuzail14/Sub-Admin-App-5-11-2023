@@ -14,8 +14,8 @@ class AddMeasurementController extends GetxController {
   String? unitVal;
   bool isLoading = false;
   final TextEditingController chargesController = TextEditingController();
-  final TextEditingController chargesAfterDueDateController =
-      TextEditingController();
+  final TextEditingController chargesAfterDueDateController = TextEditingController();
+  final TextEditingController lateChargesController = TextEditingController();
   final TextEditingController appChargesController = TextEditingController();
   final TextEditingController taxController = TextEditingController();
   final TextEditingController bedRoomsController = TextEditingController();
@@ -61,7 +61,9 @@ class AddMeasurementController extends GetxController {
     required String bedrooms,
     required String area,
     required String serviceChargesAfterDueDate,
+    required String lateCharges,
     required String appCharges,
+
     required String tax,
   }) async {
     print(userid);
@@ -74,7 +76,7 @@ class AddMeasurementController extends GetxController {
     isLoading = true;
     update();
     final response = await Http.post(
-      Uri.parse(Api.addmeasurement),
+      Uri.parse(Api.addMeasurement),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $bearerToken"
@@ -88,6 +90,7 @@ class AddMeasurementController extends GetxController {
         'bedrooms': bedrooms,
         "status": 0,
         "chargesafterduedate": serviceChargesAfterDueDate,
+        "latecharges": lateCharges,
         "appcharges": double.tryParse(appCharges),
         "tax": tax
       }),
@@ -130,7 +133,7 @@ class AddMeasurementController extends GetxController {
       required String token,
       required String type}) async {
     final response = await Http.get(
-      Uri.parse(Api.housesapartmentmeasurements +
+      Uri.parse(Api.housesApartmentMeasurements +
           "/" +
           subadminid.toString() +
           "/" +
@@ -155,12 +158,14 @@ class AddMeasurementController extends GetxController {
     double after_due_date_fine = 0.05;
     double app_charges = serviceCharges! * (app_percentage / 100);
     double tax_charges = serviceCharges * (tax_percentage / 100);
+    double late_charges =  (serviceCharges * after_due_date_fine);
     double after_duedate_charges =
         (serviceCharges * after_due_date_fine) + serviceCharges;
 
     taxController.text = tax_charges.toString();
     appChargesController.text = app_charges.toString();
     chargesAfterDueDateController.text = after_duedate_charges.toString();
+    lateChargesController.text=late_charges.toString();
 
     update();
   }

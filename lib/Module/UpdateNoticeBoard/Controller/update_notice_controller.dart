@@ -119,7 +119,7 @@ class UpdateNoticeBoardController extends GetxController {
     print(bearerToken.toString());
 
     final response = await Http.post(
-      Uri.parse(Api.updatenotice),
+      Uri.parse(Api.updateNotice),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $bearerToken"

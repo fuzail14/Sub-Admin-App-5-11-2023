@@ -94,7 +94,7 @@ class ApartmentResidentVerificationController extends GetxController
     print(type);
 
     var response = await Dio().get(
-        Api.housesapartmentmeasurements +
+        Api.housesApartmentMeasurements +
             '/' +
             subadminid.toString() +
             '/' +
@@ -122,7 +122,7 @@ class ApartmentResidentVerificationController extends GetxController
 
   Future<List<Building>> viewAllBuildingApi({required subAdminId,required bearerToken}) async {
     var response = await Dio().get(
-        Api.allsocietybuildings + '/' + subAdminId.toString(),
+        Api.allSocietyBuildings + '/' + subAdminId.toString(),
         options: Options(headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${bearerToken}"
@@ -145,7 +145,7 @@ class ApartmentResidentVerificationController extends GetxController
   Future<List<Floor>> viewAllFloorApi({required buildingid,required bearerToken}) async {
     print(buildingid);
     var response = await Dio().get(
-        Api.viewsocietybuildingfloors + '/' + buildingid.toString(),
+        Api.viewSocietyBuildingFloors + '/' + buildingid.toString(),
         options: Options(headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${bearerToken}"
@@ -166,7 +166,7 @@ class ApartmentResidentVerificationController extends GetxController
   Future<List<Apartment>> viewAllApartmentApi({required floorid,required bearerToken}) async {
     print(floorid);
     var response = await Dio().get(
-        Api.viewsocietybuildingapartments + '/' + floorid.toString(),
+        Api.viewSocietyBuildingApartments + '/' + floorid.toString(),
         options: Options(headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${bearerToken}"
@@ -232,7 +232,7 @@ class ApartmentResidentVerificationController extends GetxController
 
     required String token,
   }) async {
-    final response = await Http.post(Uri.parse(Api.verifyapartmentresident),
+    final response = await Http.post(Uri.parse(Api.verifyApartmentResident),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': "Bearer $token"

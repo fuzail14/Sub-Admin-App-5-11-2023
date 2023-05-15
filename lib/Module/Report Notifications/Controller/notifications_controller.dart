@@ -29,7 +29,7 @@ class NotificationsController extends GetxController {
   Future<List<ReportNotification>> viewNotificationsApi(
       int subadminid, String token) async {
     final response = await Http.get(
-      Uri.parse(Api.pendingreports + "/" + subadminid.toString()),
+      Uri.parse(Api.pendingReports + "/" + subadminid.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"
@@ -82,7 +82,7 @@ class NotificationsController extends GetxController {
     //       "statusdescription": statusdescription,
     //     });
 
-    final uri = Uri.parse(Api.updatereportstatus);
+    final uri = Uri.parse(Api.updateReportStatus);
     final headers = {
       'Content-Type': 'application/json; charset=UTF-8',
       'Authorization': "Bearer $token"
@@ -124,7 +124,7 @@ class NotificationsController extends GetxController {
 
     print('token $token');
 
-    final uri = Uri.parse(Api.updatereportstatus);
+    final uri = Uri.parse(Api.updateReportStatus);
     final headers = {
       'Content-Type': 'application/json; charset=UTF-8',
       'Authorization': "Bearer $token"

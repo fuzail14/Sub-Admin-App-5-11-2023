@@ -39,7 +39,7 @@ class AddLocalBuildingFloorsController extends GetxController {
 
     Map<String, String> headers = {"Authorization": "Bearer $bearerToken"};
     var request =
-        Http.MultipartRequest('POST', Uri.parse(Api.add_local_building_floors));
+        Http.MultipartRequest('POST', Uri.parse(Api.addLocalBuildingFloors));
     request.headers.addAll(headers);
 
     request.fields['from'] = from;

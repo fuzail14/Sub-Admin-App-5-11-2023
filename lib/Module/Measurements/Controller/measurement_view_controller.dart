@@ -27,7 +27,7 @@ class MeasurementViewController extends GetxController {
 
 
     final response = await Http.get(
-      Uri.parse(Api.housesapartmentmeasurements + "/" + subadminid.toString()+"/"+type.toString()),
+      Uri.parse(Api.housesApartmentMeasurements + "/" + subadminid.toString()+"/"+type.toString()),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"

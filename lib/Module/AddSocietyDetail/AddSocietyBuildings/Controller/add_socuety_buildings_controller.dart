@@ -43,7 +43,7 @@ class AddSocietyBuildingController extends GetxController {
 
     Map<String, String> headers = {"Authorization": "Bearer $bearerToken"};
     var request =
-        Http.MultipartRequest('POST', Uri.parse(Api.addsocietybuilding));
+        Http.MultipartRequest('POST', Uri.parse(Api.addSocietyBuilding));
     request.headers.addAll(headers);
     request.fields['societybuildingname'] = BuildingName;
     request.fields['subadminid'] = subadminid.toString();

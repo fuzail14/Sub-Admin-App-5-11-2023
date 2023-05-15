@@ -40,7 +40,7 @@ class AddPhasesController extends GetxController {
     update();
 
     Map<String, String> headers = {"Authorization": "Bearer $bearerToken"};
-    var request = Http.MultipartRequest('POST', Uri.parse(Api.addphases));
+    var request = Http.MultipartRequest('POST', Uri.parse(Api.addPhases));
     request.headers.addAll(headers);
 
     request.fields['from'] = from;
