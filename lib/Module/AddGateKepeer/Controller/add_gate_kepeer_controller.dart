@@ -26,6 +26,7 @@ class AddGateKepeerScreenController extends GetxController {
   TextEditingController gatenoController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   File? imageFile;
+  
 
   var arguments = Get.arguments;
   late final User? user;
