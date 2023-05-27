@@ -60,6 +60,7 @@ import '../Module/AddSocietyDetail/StreetOrBuilding/View/street_or_building_scre
 import '../Module/AddSocietyDetail/StructureType5HouseOrBuildingMiddleWare/View/structure_type5_house_or_building_screen.dart';
 import '../Module/GatekeeperDetail/View/gatekeeper_details.dart';
 import '../Module/HomeScreen/View/home_screen.dart';
+import '../Module/Residental Emergency/View/residential_emergency_screen.dart';
 import '../Module/UnVerifiedResidents/View/house_resident_verification.dart';
 import '../Module/UnVerifiedResidents/View/local_building_apartment_resident_verification.dart';
 import '../Module/UpdateGateKeeper/View/updategatekeeper_detail_screen.dart';
@@ -393,6 +394,12 @@ class RouteManagement {
       GetPage(
           name: localBuildingApartmentResidentVerification,
           page: () => LocalBuildingApartmentResidentVerification(),
+          binding: ScreenBindings(),
+          transition: Transition.noTransition),
+
+      GetPage(
+          name: residentialEmergencyScreen,
+          page: () => ResidentialEmergencyScreen(),
           binding: ScreenBindings(),
           transition: Transition.noTransition),
     ];

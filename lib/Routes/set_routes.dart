@@ -88,6 +88,8 @@ const String structureType5HouseOrBuildingMiddlewareScreen =
 
 const String localBuildingApartmentResidentVerification =
     '/LocalBuildingApartmentResidentVerification';
+const String residentialEmergencyScreen =
+    '/ResidentialEmergencyScreen';
 
 
 

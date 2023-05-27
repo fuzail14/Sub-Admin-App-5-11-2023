@@ -53,6 +53,7 @@ import '../Module/Login/View/login.dart';
 import '../Module/Measurements/View/measurements_view.dart';
 import '../Module/NoticeBoard/View/notice_board_screen.dart';
 import '../Module/Report Notifications/View/report_notifications_screen.dart';
+import '../Module/Residental Emergency/View/residential_emergency_screen.dart';
 import '../Module/UnVerifiedResidents/View/apartment_resident_verification.dart';
 import '../Module/UnVerifiedResidents/View/house_resident_verification.dart';
 import '../Module/UnVerifiedResidents/View/local_building_apartment_resident_verification.dart';
@@ -130,5 +131,8 @@ class ScreenBindings extends Bindings {
     Get.lazyPut(() => AddLocalBuildingApartmentsScreen());
     Get.lazyPut(() => StructureType5HouseOrBuildingMiddlewareScreen());
     Get.lazyPut(() => LocalBuildingApartmentResidentVerification());
+    Get.lazyPut(() => ResidentialEmergencyScreen());
+
+    
   }
 }
