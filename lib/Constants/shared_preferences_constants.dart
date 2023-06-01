@@ -1,8 +1,6 @@
 const String userIdSPKey = 'userid';
 const String societyorbuildingNameSPKey = 'firstName';
-
 const String firstNameSPKey = 'firstName';
-
 const String lastNameSPKey = 'lastName';
 const String roleNameSPKey = 'rolename';
 const String roleIdSPKey = 'roleId';
@@ -15,16 +13,17 @@ const String subadminidSPKey = 'subadminid';
 const String imageSPKey = 'image';
 const String bearerTokenSPKey = 'bearerToken';
 const String fcmtokenSPKey = 'fcmtoken';
+const String structuretypeSPKey = 'structuretype';
+const String societynameSPKey = 'name';
 
 //Society
-
-const String countrySPKey = 'country';
-const String stateSPKey = 'state';
-const String citySPKey = 'city';
-const String societyIdSPKey = 'id';
-const String areaSPKey = 'area';
-const String typeSPKey = 'type';
-const String societyaddressSPKey = 'address';
-const String societynameSPKey = 'name';
-const String societysuperadminidSPKey = 'superadminid';
-const String structuretypeSPKey = 'structuretype';
+//
+// const String countrySPKey = 'country';
+// const String stateSPKey = 'state';
+// const String citySPKey = 'city';
+// const String societyIdSPKey = 'id';
+// const String areaSPKey = 'area';
+// const String typeSPKey = 'type';
+// const String societyaddressSPKey = 'address';
+// const String societynameSPKey = 'name';
+// const String societysuperadminidSPKey = 'superadminid';

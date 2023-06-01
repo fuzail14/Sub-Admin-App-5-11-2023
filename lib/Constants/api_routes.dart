@@ -67,8 +67,14 @@ class Api {
   static const String viewPropertiesForResidents =
       baseUrl + "viewpropertiesforresidents";
   static const String viewSocietyApi = baseUrl + "society/viewsociety";
-  static const String generateBill = baseUrl + "generatebill";
-  static const String generatedBill = baseUrl + "generatedbill";
+
+  static const String generateHouseBill = baseUrl + "generatehousebill";
+  static const String generateSocietyApartmentBill =
+      baseUrl + "generatesocietyapartmentbill";
+  static const String generatedHouseBill = baseUrl + "generatedhousebill";
+  static const String generatedSocietyApartmentBill =
+      baseUrl + "generatedsocietyapartmentbill";
+
   static const String verifyHouseResident = baseUrl + "verifyhouseresident";
   static const String verifyApartmentResident =
       baseUrl + "verifyapartmentresident";

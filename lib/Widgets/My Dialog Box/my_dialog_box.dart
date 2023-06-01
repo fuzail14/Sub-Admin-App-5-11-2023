@@ -5,6 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 import '../../Constants/constants.dart';
 import '../My Button/my_button.dart';
+
 class CustomDialog extends StatelessWidget {
   final String? title, content, positiveBtnText, negativeBtnText;
   final GestureTapCallback? positiveBtnPressed;
@@ -51,9 +52,7 @@ class CustomDialog extends StatelessWidget {
               Text(
                 title!,
                 style: GoogleFonts.montserrat(
-
-                    color: primaryColor,
-                    fontWeight: FontWeight.w500),
+                    color: primaryColor, fontWeight: FontWeight.w500),
               ),
               SizedBox(
                 height: 16,
@@ -71,42 +70,31 @@ class CustomDialog extends StatelessWidget {
                 alignment: MainAxisAlignment.center,
                 buttonMinWidth: 100,
                 children: <Widget>[
-
-
-    MyButton(
-    outlinedBorder:RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(8)) ,
-    width: MediaQuery.of(context).size.width*0.23,
-    textColor: Colors.white,
-    fontWeight: FontWeight.w500,
-    fontSize: 10,
-    height: MediaQuery.of(context)
-        .size
-        .height *
-    0.03,
-
-    name:positiveBtnText!,
-    color: HexColor('#DC3545'),
-    elevation: 0,
-    onPressed: positiveBtnPressed,
-    ),
-
+                  MyButton(
+                    outlinedBorder: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    width: MediaQuery.of(context).size.width * 0.23,
+                    textColor: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 10,
+                    height: MediaQuery.of(context).size.height * 0.03,
+                    name: positiveBtnText!,
+                    color: HexColor('#DC3545'),
+                    elevation: 0,
+                    onPressed: positiveBtnPressed,
+                  ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.01,
                   ),
                   MyButton(
-                    outlinedBorder:RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)) ,
-                    width: MediaQuery.of(context).size.width*0.23,
+                    outlinedBorder: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    width: MediaQuery.of(context).size.width * 0.23,
                     textColor: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 10,
-                    height: MediaQuery.of(context)
-                        .size
-                        .height *
-                        0.03,
-
-                    name:negativeBtnText!,
+                    height: MediaQuery.of(context).size.height * 0.03,
+                    name: negativeBtnText!,
                     color: HexColor('#E8E8E8'),
                     elevation: 0,
                     onPressed: negativeBtnPressed,

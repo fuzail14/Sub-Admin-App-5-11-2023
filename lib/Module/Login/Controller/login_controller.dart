@@ -1,19 +1,19 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
+
 import '../../../Constants/api_routes.dart';
 import '../../../Routes/set_routes.dart';
 import '../../../Services/Shared Preferences/MySharedPreferences.dart';
-
 import '../Model/SocietyModel.dart';
 import '../Model/User.dart';
 
 class LoginController extends GetxController {
   var isHidden = false;
-
   TextEditingController userCnicController = TextEditingController();
   TextEditingController userPasswordController = TextEditingController();
 

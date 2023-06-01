@@ -1,9 +1,7 @@
-import '../../Constants/shared_preferences_constants.dart';
-
-import '../../Module/Login/Model/SocietyModel.dart';
-import '../../Module/Login/Model/User.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../Constants/shared_preferences_constants.dart';
+import '../../Module/Login/Model/User.dart';
 
 class MySharedPreferences {
   static setUserData({required User user}) async {
@@ -11,8 +9,7 @@ class MySharedPreferences {
       value.setInt(userIdSPKey, user.userid ?? 0);
       value.setInt(structuretypeSPKey, user.structureType ?? 0);
 
-      value.setString(
-          societynameSPKey, user.societyorbuildingname ?? '');
+      value.setString(societynameSPKey, user.societyorbuildingname ?? '');
       value.setString(firstNameSPKey, user.firstName ?? '');
       value.setString(mobileNoSPKey, user.mobileno ?? '');
       value.setString(lastNameSPKey, user.lastName ?? '');
@@ -75,63 +72,68 @@ class MySharedPreferences {
     User _user = User();
 
     await SharedPreferences.getInstance().then((value) {
-      // value.remove(userIdSPKey);
-      // value.remove(firstNameSPKey);
-      // value.remove(lastNameSPKey);
-      final success = value.remove(bearerTokenSPKey);
-      print(success.then((value) => value));
-      // value.remove(cnicSPKey);
-      // value.remove(roleNameSPKey);
-      // value.remove(roleIdSPKey);
+      value.remove(userIdSPKey);
+      value.remove(firstNameSPKey);
+      value.remove(lastNameSPKey);
+      value.remove(bearerTokenSPKey);
+      value.remove(cnicSPKey);
+      value.remove(roleNameSPKey);
+      value.remove(roleIdSPKey);
+      value.remove(addressSPKey);
+      value.remove(structuretypeSPKey);
+      value.remove(superadminidSPKey);
+      value.remove(societyidSPKey);
+      value.remove(mobileNoSPKey);
+      value.remove(imageSPKey);
     });
   }
 
-  static setSocietyData({required SocietyModel societyModel}) async {
-    await SharedPreferences.getInstance().then((value) {
-      value.setInt(societyIdSPKey, societyModel.id ?? 0);
-      value.setString(countrySPKey, societyModel.country ?? '');
-      value.setString(stateSPKey, societyModel.state ?? '');
-      value.setString(citySPKey, societyModel.city ?? '');
-      value.setString(areaSPKey, societyModel.area ?? '');
-      value.setString(typeSPKey, societyModel.type ?? '');
-      value.setString(societyaddressSPKey, societyModel.address ?? '');
-      value.setString(societynameSPKey, societyModel.name ?? '');
-      value.setInt(societysuperadminidSPKey, societyModel.superadminid ?? 0);
-      value.setInt(structuretypeSPKey, societyModel.structuretype ?? 0);
-    });
-  }
-
-  static Future<SocietyModel> getSocietyData() async {
-    SocietyModel societyModel = SocietyModel();
-    await SharedPreferences.getInstance().then((value) {
-      value.getInt(societyIdSPKey) ?? value.setInt(societyIdSPKey, 0);
-      value.getString(countrySPKey) ?? value.setString(countrySPKey, '');
-      value.getString(stateSPKey) ?? value.setString(stateSPKey, '');
-      value.getString(citySPKey) ?? value.setString(citySPKey, '');
-      value.getString(areaSPKey) ?? value.setString(areaSPKey, '');
-      value.getString(typeSPKey) ?? value.setString(typeSPKey, '');
-      value.getString(societyaddressSPKey) ??
-          value.setString(societyaddressSPKey, '');
-      value.getString(societynameSPKey) ??
-          value.setString(societynameSPKey, '');
-
-      value.getInt(societysuperadminidSPKey) ??
-          value.setInt(societysuperadminidSPKey, 0);
-      value.getInt(structuretypeSPKey) ?? value.setInt(structuretypeSPKey, 0);
-
-      societyModel = SocietyModel(
-        area: value.getString(areaSPKey),
-        city: value.getString(citySPKey),
-        country: value.getString(countrySPKey),
-        id: value.getInt(societyIdSPKey),
-        name: value.getString(societynameSPKey),
-        state: value.getString(stateSPKey),
-        structuretype: value.getInt(structuretypeSPKey),
-        type: value.getString(typeSPKey),
-        superadminid: value.getInt(societysuperadminidSPKey),
-      );
-    });
-
-    return societyModel;
-  }
+  // static setSocietyData({required SocietyModel societyModel}) async {
+  //   await SharedPreferences.getInstance().then((value) {
+  //     value.setInt(societyIdSPKey, societyModel.id ?? 0);
+  //     value.setString(countrySPKey, societyModel.country ?? '');
+  //     value.setString(stateSPKey, societyModel.state ?? '');
+  //     value.setString(citySPKey, societyModel.city ?? '');
+  //     value.setString(areaSPKey, societyModel.area ?? '');
+  //     value.setString(typeSPKey, societyModel.type ?? '');
+  //     value.setString(societyaddressSPKey, societyModel.address ?? '');
+  //     value.setString(societynameSPKey, societyModel.name ?? '');
+  //     value.setInt(societysuperadminidSPKey, societyModel.superadminid ?? 0);
+  //     value.setInt(structuretypeSPKey, societyModel.structuretype ?? 0);
+  //   });
+  // }
+  //
+  // static Future<SocietyModel> getSocietyData() async {
+  //   SocietyModel societyModel = SocietyModel();
+  //   await SharedPreferences.getInstance().then((value) {
+  //     value.getInt(societyIdSPKey) ?? value.setInt(societyIdSPKey, 0);
+  //     value.getString(countrySPKey) ?? value.setString(countrySPKey, '');
+  //     value.getString(stateSPKey) ?? value.setString(stateSPKey, '');
+  //     value.getString(citySPKey) ?? value.setString(citySPKey, '');
+  //     value.getString(areaSPKey) ?? value.setString(areaSPKey, '');
+  //     value.getString(typeSPKey) ?? value.setString(typeSPKey, '');
+  //     value.getString(societyaddressSPKey) ??
+  //         value.setString(societyaddressSPKey, '');
+  //     value.getString(societynameSPKey) ??
+  //         value.setString(societynameSPKey, '');
+  //
+  //     value.getInt(societysuperadminidSPKey) ??
+  //         value.setInt(societysuperadminidSPKey, 0);
+  //     value.getInt(structuretypeSPKey) ?? value.setInt(structuretypeSPKey, 0);
+  //
+  //     societyModel = SocietyModel(
+  //       area: value.getString(areaSPKey),
+  //       city: value.getString(citySPKey),
+  //       country: value.getString(countrySPKey),
+  //       id: value.getInt(societyIdSPKey),
+  //       name: value.getString(societynameSPKey),
+  //       state: value.getString(stateSPKey),
+  //       structuretype: value.getInt(structuretypeSPKey),
+  //       type: value.getString(typeSPKey),
+  //       superadminid: value.getInt(societysuperadminidSPKey),
+  //     );
+  //   });
+  //
+  //   return societyModel;
+  // }
 }

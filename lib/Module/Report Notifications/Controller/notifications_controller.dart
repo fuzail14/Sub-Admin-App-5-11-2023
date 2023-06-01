@@ -2,12 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
 import '../../../Constants/constants.dart';
 import '../../Login/Model/User.dart';
-import 'package:http/http.dart' as Http;
-
 import '../Model/Notification.dart';
 
 class NotificationsController extends GetxController {
@@ -116,7 +115,6 @@ class NotificationsController extends GetxController {
       update();
     }
   }
-  
 
   AcceptButtonApi(int reportid, int userid, String token) async {
     print('id $reportid');
@@ -144,10 +142,9 @@ class NotificationsController extends GetxController {
       body: jsonBody,
       encoding: encoding,
     );
-
-    var data = jsonDecode(response.body.toString());
-
+    print(response.body);
     if (response.statusCode == 200) {
+      print(response.body);
       Get.snackbar('Message:', 'Report Accepted',
           snackPosition: SnackPosition.TOP,
           showProgressIndicator: true,

@@ -14,22 +14,17 @@ class AddGateKepeerScreenController extends GetxController {
   final formKey = new GlobalKey<FormState>();
   var isHidden = false;
   var isLoading = false;
-
   TextEditingController fnameController = TextEditingController();
   TextEditingController lnameController = TextEditingController();
-
   TextEditingController cnicController = TextEditingController();
-
   TextEditingController addressController = TextEditingController();
   TextEditingController mobilenoController = TextEditingController();
-
   TextEditingController gatenoController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   File? imageFile;
-  
-
   var arguments = Get.arguments;
   late final User? user;
+
   @override
   void onInit() {
     // TODO: implement onInit

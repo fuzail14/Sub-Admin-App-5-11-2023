@@ -111,7 +111,6 @@ class AddGateKeeper extends GetView {
                             ),
                           ],
                         ),
-                        
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                         ),

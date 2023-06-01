@@ -65,8 +65,8 @@ const String addmeasurements = '/AddMeasurements';
 const String measurementview = '/MeasurementView';
 const String houseresidentverification = '/HouseResidentVerification';
 const String apartmentresidentverification = '/ApartmentResidentVerification';
-const String generatebill = '/GenerateBill';
-const String generatedbill = '/GeneratedBill';
+const String generatehousebills = '/GenerateHouseBills';
+const String generatedhousebills = '/GeneratedHouseBills';
 const String streetorbuildingscreen = '/StreetOrBuildingScreen';
 const String blockorsocietybuilding = '/BlockOrSocietyBuilding';
 const String phaseorsocietybuilding = '/PhaseOrSocietyBuilding';
@@ -74,30 +74,25 @@ const String blockbuildingorstreet = '/BlockBuildingOrStreet';
 const String blockbuilding = '/BlockBuilding';
 const String addblockbuildingscreen = '/AddBlockBuildingScreen';
 const String phasebuildingorblock = '/PhaseBuildingOrBlock';
-const String blockorphasebuildingfloorsscreen = '/BlockOrPhaseBuildingFloorsScreen';
+const String blockorphasebuildingfloorsscreen =
+    '/BlockOrPhaseBuildingFloorsScreen';
 const String addblockorphasebuildingfloors = '/AddBlockOrPhaseBuildingFloors';
-const String blockOrphasebuildingapartmentsscreen = '/BlockOrPhaseBuildingApartmentsScreen';
-const String addblockorphasebuildingapartmentsscreen = '/AddBlockOrPhaseBuildingApartmentsScreen';
+const String blockOrphasebuildingapartmentsscreen =
+    '/BlockOrPhaseBuildingApartmentsScreen';
+const String addblockorphasebuildingapartmentsscreen =
+    '/AddBlockOrPhaseBuildingApartmentsScreen';
 const String localbuildingscreen = '/LocalBuildingScreen';
 const String localbuildingfloorsscreen = '/LocalBuildingFloorsScreen';
 const String addlocalbuildingfloors = '/AddLocalBuildingFloors';
 const String localbuildingapartmentscreen = '/LocalBuildingApartmentScreen';
-const String addlocalbuildingapartmentsscreen = '/AddLocalBuildingApartmentsScreen';
+const String addlocalbuildingapartmentsscreen =
+    '/AddLocalBuildingApartmentsScreen';
 const String structureType5HouseOrBuildingMiddlewareScreen =
     '/StructureType5HouseOrBuildingMiddlewareScreen';
 
 const String localBuildingApartmentResidentVerification =
     '/LocalBuildingApartmentResidentVerification';
-const String residentialEmergencyScreen =
-    '/ResidentialEmergencyScreen';
-
-
-
-
-
-
-
-
-
-
-
+const String bills = '/Bills';
+const String generatesocietyapartmentbills = '/GenerateSocietyApartmentBills';
+const String generatedsocietyapartmentbills = '/GeneratedSocietyApartmentBills';
+const String residentialEmergencyScreen = '/ResidentialEmergencyScreen';

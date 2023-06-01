@@ -1,9 +1,11 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../../Constants/constants.dart';
+
 // ignore: must_be_immutable
 class AdminScreenContainer extends StatelessWidget {
   AdminScreenContainer(
@@ -13,14 +15,13 @@ class AdminScreenContainer extends StatelessWidget {
   String? text;
   @override
   Widget build(BuildContext context) {
-    return
-      GestureDetector(
+    return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.090, //51
-        width: MediaQuery.of(context).size.width * 0.348,
+        height: ScreenUtil().setHeight(72),
+        width: ScreenUtil().setWidth(148),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16).w,
           color: primaryColor,
         ),
         child: Row(
@@ -28,46 +29,36 @@ class AdminScreenContainer extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.032,
-                  top: MediaQuery.of(context).size.height * 0.016),
+                left: ScreenUtil().setWidth(4),
+                top: ScreenUtil().setHeight(16),
+              ),
               child: Container(
-                child:  SvgPicture.asset(
-                    icon!,
-                    fit: BoxFit.scaleDown,
-                    // width: MediaQuery.of(
-                    //     context)
-                    //     .size
-                    //     .width*0.01
-                    //
+                margin: EdgeInsets.only(
+                  left: ScreenUtil().setWidth(11),
+                  bottom: ScreenUtil().setHeight(10),
                 ),
-                width: MediaQuery.of(context).size.width * 0.080,
-                height: MediaQuery.of(context).size.height * 0.040,
+                child: SvgPicture.asset(
+                  icon!,
+                  fit: BoxFit.scaleDown,
+                ),
+                width: ScreenUtil().setWidth(40),
+                height: ScreenUtil().setHeight(40),
                 decoration: BoxDecoration(
-
                   color: HexColor('#FFDDA9'),
-                  borderRadius: BorderRadius.circular(12),
-
-                  // image: DecorationImage(
-                  //     image: AssetImage(
-                  //       icon!,
-                  //     ),
-                  //     colorFilter: ColorFilter.mode(
-                  //         HexColor('#F7991A'), BlendMode.dstIn)
-                  //
-                  // ),
+                  borderRadius: BorderRadius.circular(16).w,
                 ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.028,
-                top: MediaQuery.of(context).size.height * 0.030,
+                left: ScreenUtil().setWidth(8),
+                top: ScreenUtil().setHeight(26),
               ),
               child: Text(
                 text!,
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.030, //16
-                    fontFamily: "OpenSansSemiBold",
+                style: GoogleFonts.ubuntu(
+                    fontSize: ScreenUtil().setSp(12),
+                    fontStyle: FontStyle.normal,
                     color: HexColor('#FFFFFF'),
                     fontWeight: FontWeight.w700),
               ),

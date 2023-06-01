@@ -41,7 +41,7 @@ dependencies:
   #infinite_scroll_pagination: ^3.2.0
 #  flutter_staggered_grid_view: ^0.6.2
   shared_preferences: ^2.0.15
-  fluttertoast: ^8.0.9
+  
   firebase_core: ^2.6.1
   firebase_messaging: ^14.2.4
   google_fonts: ^4.0.4
@@ -52,6 +52,10 @@ dependencies:
   csc_picker: ^0.2.6
   intl: ^0.17.0
   firebase_core_platform_interface: ^4.5.1
+  flutter_screenutil: ^5.8.2
+  android_alarm_manager_plus: ^2.1.4
+  alarm: ^1.0.5
+  app_settings: ^4.2.0
 
 
 

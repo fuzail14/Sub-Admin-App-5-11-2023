@@ -5,8 +5,8 @@ import 'package:societyadminapp/Module/AddSocietyDetail/Add%20Streets/View/add_s
 import 'package:societyadminapp/Module/AddSocietyDetail/Blocks/View/blocks.dart';
 import 'package:societyadminapp/Module/AddSocietyDetail/Phases/View/phases.dart';
 import 'package:societyadminapp/Module/AddSocietyDetail/Streets/View/streets.dart';
-import 'package:societyadminapp/Module/Generate%20Bill/View/generate_bill.dart';
 import 'package:societyadminapp/Module/Measurements/View/add_measurements.dart';
+import 'package:societyadminapp/Module/Society%20Apartment%20Bills/View/generate_society_apartment_bills.dart';
 import 'package:societyadminapp/Module/Splash/View/splash_screen.dart';
 import 'package:societyadminapp/Module/UnVerifiedResidents/View/unverified_residents.dart';
 
@@ -42,18 +42,21 @@ import '../Module/AddSocietyDetail/SocietyBuildings/View/society_building_screen
 import '../Module/AddSocietyDetail/StreetOrBuilding/View/street_or_building_screen.dart';
 import '../Module/AddSocietyDetail/StructureType5HouseOrBuildingMiddleWare/View/structure_type5_house_or_building_screen.dart';
 import '../Module/AdminProfile/View/admin_profile_screen.dart';
+import '../Module/Bills/View/bills.dart';
 import '../Module/Events/View/events_screen.dart';
 import '../Module/Events/View/view_event_images_screen.dart';
 import '../Module/GateKepeer/View/gate_keeper_screen.dart';
 import '../Module/GatekeeperDetail/View/gatekeeper_details.dart';
-import '../Module/Generate Bill/View/generated_bill.dart';
 import '../Module/HomeScreen/View/home_screen.dart';
+import '../Module/House Bills/View/generate_house_bill.dart';
+import '../Module/House Bills/View/generated_house_bill.dart';
 import '../Module/ImageHeroView/viewimage.dart';
 import '../Module/Login/View/login.dart';
 import '../Module/Measurements/View/measurements_view.dart';
 import '../Module/NoticeBoard/View/notice_board_screen.dart';
 import '../Module/Report Notifications/View/report_notifications_screen.dart';
 import '../Module/Residental Emergency/View/residential_emergency_screen.dart';
+import '../Module/Society Apartment Bills/View/generated_society_apartment_bills.dart';
 import '../Module/UnVerifiedResidents/View/apartment_resident_verification.dart';
 import '../Module/UnVerifiedResidents/View/house_resident_verification.dart';
 import '../Module/UnVerifiedResidents/View/local_building_apartment_resident_verification.dart';
@@ -111,8 +114,8 @@ class ScreenBindings extends Bindings {
     Get.lazyPut(() => MeasurementView());
     Get.lazyPut(() => HouseResidentVerification());
     Get.lazyPut(() => ApartmentResidentVerification());
-    Get.lazyPut(() => GenerateBill());
-    Get.lazyPut(() => GeneratedBill());
+    Get.lazyPut(() => GenerateHouseBill());
+    Get.lazyPut(() => GeneratedHouseBill());
     Get.lazyPut(() => StreetOrBuildingScreen());
     Get.lazyPut(() => BlockOrSocietyBuilding());
     Get.lazyPut(() => PhaseOrSocietyBuilding());
@@ -131,8 +134,9 @@ class ScreenBindings extends Bindings {
     Get.lazyPut(() => AddLocalBuildingApartmentsScreen());
     Get.lazyPut(() => StructureType5HouseOrBuildingMiddlewareScreen());
     Get.lazyPut(() => LocalBuildingApartmentResidentVerification());
+    Get.lazyPut(() => Bills());
+    Get.lazyPut(() => GenerateSocietyApartmentBills());
+    Get.lazyPut(() => GeneratedSocietyApartmentBills());
     Get.lazyPut(() => ResidentialEmergencyScreen());
-
-    
   }
 }

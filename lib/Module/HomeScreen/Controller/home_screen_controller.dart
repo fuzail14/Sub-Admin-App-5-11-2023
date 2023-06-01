@@ -1,13 +1,12 @@
 import 'dart:convert';
 
+import 'package:alarm/alarm.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
-import '../../../Services/Shared Preferences/MySharedPreferences.dart';
-import '../../Login/Model/SocietyModel.dart';
+import '../../../Services/Notification Services/notification_services.dart';
 import '../../Login/Model/User.dart';
-
 import '../Model/myapimodel.dart';
 
 class HomeScreenController extends GetxController {
@@ -15,17 +14,24 @@ class HomeScreenController extends GetxController {
   var userdata = Get.arguments;
 
   PhasesList? selectedItem;
-  SocietyModel? societyModel;
 
-  //  Phases? selectedItem;
   @override
-  void onInit() async {
+  void onInit() {
     // TODO: implement onInit
     super.onInit();
+    NotificationServices notificationServices = NotificationServices();
+    // notificationServices.requestNotification();
+    notificationServices.fireBaseInit();
+    notificationServices.setupInteractMessage();
+    notificationServices.getDeviceToken();
+
     user = userdata;
-    societyModel = await MySharedPreferences.getSocietyData();
-    print('structre type ${societyModel!.structuretype}');
+
     print("bidddd ${user.societyid}");
+  }
+
+  setAlarm({required alarmSettings}) async {
+    await Alarm.set(alarmSettings: alarmSettings);
   }
 
   viewUnVerifiedResidentCountApi(
