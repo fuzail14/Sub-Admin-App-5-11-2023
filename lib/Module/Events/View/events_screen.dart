@@ -7,8 +7,10 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:societyadminapp/Module/Events/Controller/event_screen_controller.dart';
 import 'package:societyadminapp/Routes/set_routes.dart';
 import 'package:societyadminapp/Widgets/Empty%20List/empty_list.dart';
+import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 import 'package:societyadminapp/Widgets/My%20Button/my_button.dart';
 import '../../../Constants/constants.dart';
+import '../../../Widgets/Event&NoticeBoardViewCard/event_n_noticeboard_view_card.dart';
 import '../../../Widgets/My Back Button/my_back_button.dart';
 import '../../../Widgets/My Dialog Box/my_dialog_box.dart';
 
@@ -22,7 +24,7 @@ class EventsScreen extends GetView {
             child: Scaffold(
               backgroundColor: Colors.white,
               floatingActionButton: IconButton(
-                  padding: EdgeInsets.only(top: 85),
+                  padding: EdgeInsets.only(top: ScreenUtil().setHeight(85)),
                   iconSize: MediaQuery.of(context).size.height * 0.065,
                   icon: SvgPicture.asset('assets/floatingbutton.svg'),
                   onPressed: () {
@@ -37,14 +39,15 @@ class EventsScreen extends GetView {
                         MyBackButton(
                           text: 'Events',
                           widget: Padding(
-                            padding: const EdgeInsets.only(left: 142),
+                            padding: EdgeInsets.only(
+                                left: ScreenUtil().setWidth(142)),
                             child: DropdownButton(
                               // enableFeedback: true,
                               isExpanded: false,
                               style: GoogleFonts.ubuntu(
                                   fontStyle: FontStyle.normal,
                                   fontWeight: FontWeight.w300,
-                                  fontSize: 14,
+                                  fontSize: ScreenUtil().setSp(14),
                                   color: HexColor('#4D4D4D')),
                               value: controller.eventVal,
                               icon: Icon(
@@ -83,391 +86,40 @@ class EventsScreen extends GetView {
                                           ))
                                         : ListView.builder(
                                             itemBuilder: (context, index) {
-                                              return Padding(
-                                                padding: EdgeInsets.only(
-                                                  left:
-                                                      ScreenUtil().setWidth(24),
-                                                  right:
-                                                      ScreenUtil().setWidth(24),
-                                                  top: ScreenUtil()
-                                                      .setHeight(32),
-                                                ),
-                                                child: Container(
-                                                  width: ScreenUtil()
-                                                      .setWidth(327),
-                                                  decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        color: Color.fromRGBO(
-                                                            187,
-                                                            187,
-                                                            187,
-                                                            0.3)),
-                                                    // color: Colors.red,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            18).w,
-                                                  ),
-                                                  child: Stack(
-                                                    children: [
-                                                      Align(
-                                                          alignment: Alignment
-                                                              .centerRight,
-                                                          child:
-                                                              SvgPicture.asset(
-                                                            "assets/event_card_design.svg",
-                                                            color: primaryColor,
-                                                          )),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.fromLTRB(
-                                                                20, 20, 0, 0),
-                                                        child: Text(
-                                                          snapshot.data
-                                                              .data[index].title
-                                                              .toString(),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: GoogleFonts.ubuntu(
-                                                              color: HexColor(
-                                                                  '#404345'),
-                                                              fontStyle:
-                                                                  FontStyle
-                                                                      .normal,
-                                                              letterSpacing:
-                                                                  0.0015,
-                                                              fontSize: 16,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.fromLTRB(
-                                                                20, 40, 0, 0),
-                                                        child: Text(
-                                                          snapshot
-                                                              .data
-                                                              .data[index]
-                                                              .description,
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow
-                                                              .ellipsis,
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: GoogleFonts.ubuntu(
-                                                              fontStyle:
-                                                                  FontStyle
-                                                                      .normal,
-                                                              color: HexColor(
-                                                                  "#AAAAAA"),
-                                                              fontSize: 14,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.fromLTRB(
-                                                                20, 70, 0, 0),
-                                                        child: MyButton(
-                                                          outlinedBorder:
-                                                              RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8)),
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.23,
-                                                          textColor:
-                                                              primaryColor,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontSize: 10,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.03,
-                                                          name: 'Add Image',
-                                                          color: HexColor(
-                                                              '#E8E8E8'),
-                                                          elevation: 0,
-                                                          onPressed: () {
-                                                            controller
-                                                                .selectImages();
-                                                          },
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.fromLTRB(
-                                                                130, 70, 0, 0),
-                                                        child: MyButton(
-                                                          elevation: 0,
-                                                          textColor:
-                                                              Colors.white,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.23,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.03,
-                                                          outlinedBorder:
-                                                              RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8)),
-                                                          fontSize: 10,
-                                                          name: 'View Image',
-                                                          color: primaryColor,
-                                                          onPressed: () {},
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.fromLTRB(
-                                                                280, 60, 0, 0),
-                                                        child: Container(
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.04,
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.08,
-                                                          decoration: BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10),
-                                                              color:
-                                                                  primaryColor),
-                                                          child: IconButton(
-                                                            icon: SvgPicture.asset(
-                                                                "assets/delete_noticboard_icon.svg",
-                                                                width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width),
-                                                            onPressed: () {
-                                                              showDialog(
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (context) {
-                                                                    return CustomDialog(
-                                                                      image: SvgPicture.asset(
-                                                                          "assets/showdialog_delete_icon.svg",
-                                                                          width:
-                                                                              MediaQuery.of(context).size.width * 0.06),
-                                                                      negativeBtnPressed:
-                                                                          () {
-                                                                        Get.back();
-                                                                      },
-                                                                      title:
-                                                                          "Are you sure !",
-                                                                      content:
-                                                                          "Do you want to delete this?",
-                                                                      positiveBtnText:
-                                                                          "Delete",
-                                                                      negativeBtnText:
-                                                                          "Cancel",
-                                                                      positiveBtnPressed:
-                                                                          () {
-                                                                        controller.deleteEventApi(
-                                                                            snapshot.data.data[index].id,
-                                                                            controller.userdata.bearerToken!);
-                                                                      },
-                                                                    );
-                                                                  });
-                                                            },
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.fromLTRB(
-                                                                320, 60, 0, 0),
-                                                        child: Container(
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.04,
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.08,
-                                                          decoration: BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10),
-                                                              color:
-                                                                  primaryColor),
-                                                          child: IconButton(
-                                                            icon: SvgPicture.asset(
-                                                                "assets/edit_icon.svg",
-                                                                width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width),
-                                                            onPressed: () {
-                                                              Get.offAndToNamed(
-                                                                  updateevent,
-                                                                  arguments: snapshot
-                                                                          .data
-                                                                          .data[
-                                                                      index]);
-                                                            },
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.fromLTRB(
-                                                                10,
-                                                                120,
-                                                                10,
-                                                                10),
-                                                        child: Container(
-                                                          width: MediaQuery.of(
-                                                                  context)
-                                                              .size
-                                                              .width,
-                                                          height: 40,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7),
-                                                            // color: primaryColor
-                                                            gradient:
-                                                                LinearGradient(
-                                                              // 10% of the width, so there are ten blinds.
-                                                              colors: <Color>[
-                                                                HexColor(
-                                                                    '#FF9900'),
-                                                                HexColor(
-                                                                    '#FB7712'),
-                                                              ], // red to yellow
-                                                              // tileMode: TileMode.repeated, // repeats the gradient over the canvas
-                                                            ),
-                                                          ),
-                                                          child: Stack(
-                                                            children: [
-                                                              Align(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .centerLeft,
-                                                                  child:
-                                                                      Padding(
-                                                                          padding: const EdgeInsets.fromLTRB(
-                                                                              10,
-                                                                              0,
-                                                                              0,
-                                                                              0),
-                                                                          child:
-                                                                              Icon(
-                                                                            Icons.calendar_month_rounded,
-                                                                            color:
-                                                                                HexColor('#FFFFFF'),
-                                                                          ))),
-                                                              Align(
-                                                                alignment: Alignment
-                                                                    .centerLeft,
-                                                                child: Padding(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                              .fromLTRB(
-                                                                          40,
-                                                                          0,
-                                                                          0,
-                                                                          0),
-                                                                  child: Text(
-                                                                    snapshot
-                                                                        .data
-                                                                        .data[
-                                                                            index]
-                                                                        .startdate
-                                                                        .toString(),
-                                                                    style: GoogleFonts
-                                                                        .ubuntu(
-                                                                      color: HexColor(
-                                                                          '#FFFFFF'),
-                                                                      fontStyle:
-                                                                          FontStyle
-                                                                              .normal,
-                                                                      letterSpacing:
-                                                                          0.0015,
-                                                                      fontSize:
-                                                                          14,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Center(
-                                                                  child:
-                                                                      SvgPicture
-                                                                          .asset(
-                                                                "assets/event_arrow.svg",
-                                                              )),
-                                                              Align(
-                                                                alignment: Alignment
-                                                                    .centerRight,
-                                                                child: Padding(
-                                                                  padding: EdgeInsets
-                                                                      .fromLTRB(
-                                                                          0,
-                                                                          0,
-                                                                          10,
-                                                                          0),
-                                                                  child: Text(
-                                                                    snapshot
-                                                                        .data
-                                                                        .data[
-                                                                            index]
-                                                                        .enddate
-                                                                        .toString(),
-                                                                    style: GoogleFonts
-                                                                        .ubuntu(
-                                                                      color: HexColor(
-                                                                          '#FFFFFF'),
-                                                                      fontStyle:
-                                                                          FontStyle
-                                                                              .normal,
-                                                                      letterSpacing:
-                                                                          0.0015,
-                                                                      fontSize:
-                                                                          14,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
+                                              return EventnNoticeBoardViewCard(
+                                                eventCardDesginImg:
+                                                    "assets/event_card_design.svg",
+                                                title: snapshot
+                                                    .data.data[index].title
+                                                    .toString(),
+                                                description: snapshot.data
+                                                    .data[index].description,
+                                                onPressedofAddImage: () {
+                                                  controller.selectImages();
+                                                },
+                                                onPressedofViewImage: () {},
+                                                gradientColors: [
+                                                  HexColor('#FF9900'),
+                                                  HexColor('#FB7712'),
+                                                ],
+                                                DeleteDialogPress: () {
+                                                  controller.deleteEventApi(
+                                                      snapshot
+                                                          .data.data[index].id,
+                                                      controller.userdata
+                                                          .bearerToken!);
+                                                },
+                                                updateOnPressed: () {
+                                                  Get.offAndToNamed(updateevent,
+                                                      arguments: snapshot
+                                                          .data.data[index]);
+                                                },
+                                                startdate: snapshot
+                                                    .data.data[index].startdate
+                                                    .toString(),
+                                                enddate: snapshot
+                                                    .data.data[index].enddate
+                                                    .toString(),
                                               );
                                             },
                                             itemCount:
