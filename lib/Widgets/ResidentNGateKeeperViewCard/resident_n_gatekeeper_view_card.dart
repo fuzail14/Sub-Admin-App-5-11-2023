@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 
+import '../../Constants/constants.dart';
+import '../My Dialog Box/my_dialog_box.dart';
+
 class ResidentsNGateKeeperViewCard extends StatelessWidget {
-  ResidentsNGateKeeperViewCard(
-      {required this.image, required this.name, required this.mobileno});
+  ResidentsNGateKeeperViewCard({
+    required this.image,
+    required this.name,
+    required this.mobileno,
+    this.DeleteDialogPress,
+    this.updateOnPressed,
+    this.showButton = true,
+  });
   String? image;
 
   String? name;
   String? mobileno;
+  bool showButton;
+
+  void Function()? DeleteDialogPress;
+  void Function()? updateOnPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +95,60 @@ class ResidentsNGateKeeperViewCard extends StatelessWidget {
                   ),
                 ],
               ),
+              if (showButton)
+                Padding(
+                  padding: EdgeInsets.only(left: 40.w, top: 55.h),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 22.h,
+                        width: 22.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.r),
+                            color: primaryColor),
+                        child: IconButton(
+                          icon: SvgPicture.asset(
+                              "assets/delete_noticboard_icon.svg",
+                              width: MediaQuery.of(context).size.width),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return CustomDialog(
+                                    image: SvgPicture.asset(
+                                        "assets/showdialog_delete_icon.svg",
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.06),
+                                    negativeBtnPressed: () {
+                                      Get.back();
+                                    },
+                                    title: "Are you sure !",
+                                    content: "Do you want to delete this?",
+                                    positiveBtnText: "Delete",
+                                    negativeBtnText: "Cancel",
+                                    positiveBtnPressed: DeleteDialogPress,
+                                  );
+                                });
+                          },
+                        ),
+                      ),
+                      6.pw,
+                      Container(
+                        height: 22.h,
+                        width: 22.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.r),
+                            color: primaryColor),
+                        child: IconButton(
+                          icon: SvgPicture.asset("assets/edit_icon.svg",
+                              width: MediaQuery.of(context).size.width),
+                          onPressed: updateOnPressed,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
             ],
           ),
         ]),

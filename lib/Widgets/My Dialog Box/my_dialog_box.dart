@@ -81,6 +81,7 @@ class CustomDialog extends StatelessWidget {
                     name: positiveBtnText!,
                     color: HexColor('#DC3545'),
                     elevation: 0,
+                    
                     onPressed: positiveBtnPressed,
                   ),
                   SizedBox(

@@ -11,6 +11,7 @@ import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 
 import '../../../Constants/constants.dart';
 import '../../../Services/Shared Preferences/MySharedPreferences.dart';
+import '../../../Widgets/UpIcon/up_icon.dart';
 
 class HomeScreen extends GetView {
   // final HomeScreenController _homeScreenController =
@@ -82,7 +83,6 @@ class HomeScreen extends GetView {
                         onPressed: () {
                           _scaffoldKey.currentState!.openDrawer();
                         }),
-
                     16.pw,
                     Text(
                       'Society Admin',
@@ -93,7 +93,6 @@ class HomeScreen extends GetView {
                           color: primaryColor),
                     ),
                     80.61.pw,
-
                     IconButton(
                         icon: SvgPicture.asset(
                           'assets/bell.svg',
@@ -246,6 +245,9 @@ class HomeScreen extends GetView {
                   ],
                 ),
               ),
+              
+              50.ph,
+              UpIcon(),
             ]),
           ),
         ),

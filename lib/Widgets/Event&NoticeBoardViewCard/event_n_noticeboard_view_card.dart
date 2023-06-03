@@ -177,6 +177,7 @@ class EventnNoticeBoardViewCard extends StatelessWidget {
                       onPressed: updateOnPressed,
                     ),
                   ),
+                  
                 ],
               ),
             ),

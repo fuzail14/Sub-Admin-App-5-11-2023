@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 
 class MyBackButton extends StatelessWidget {
@@ -16,8 +18,7 @@ class MyBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-          left: ScreenUtil().setWidth(38), top: ScreenUtil().setHeight(72)),
+      padding: EdgeInsets.only(left: 38.w, top: 73.h),
       child: Row(
         children: [
           GestureDetector(
@@ -26,20 +27,21 @@ class MyBackButton extends StatelessWidget {
                   Get.back();
                 },
             child: Container(
+              width: 20.w,
+              height: 20.h,
               child: SvgPicture.asset(
                 "assets/arrow_back.svg",
-                width: 26,
               ),
             ),
           ),
           20.pw,
           Text(
             text!,
-            style: TextStyle(
+            style: GoogleFonts.ubuntu(
                 fontStyle: FontStyle.normal,
                 fontWeight: FontWeight.w500,
-                fontSize: 16,
-                color: Colors.black),
+                fontSize: ScreenUtil().setSp(16),
+                color: HexColor('#4D4D4D')),
           ),
           Container(
             child: widget,

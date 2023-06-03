@@ -1,13 +1,16 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:societyadminapp/Module/AddGateKepeer/Controller/add_gate_kepeer_controller.dart';
+import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 import '../../../Constants/constants.dart';
 import '../../../Widgets/My Back Button/my_back_button.dart';
 import '../../../Widgets/My Button/my_button.dart';
 import '../../../Widgets/My Password TextForm Field/my_password_textform_field.dart';
 import '../../../Widgets/My TextForm Field/my_textform_field.dart';
+import '../../../Widgets/UpIcon/up_icon.dart';
 
 class AddGateKeeper extends GetView {
   @override
@@ -28,13 +31,11 @@ class AddGateKeeper extends GetView {
                         MyBackButton(
                           text: 'Add Gatekeeper',
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.05,
-                        ),
+                        25.35.ph,
                         Stack(
                           children: <Widget>[
                             CircleAvatar(
-                              radius: 50.0,
+                              radius: 50.0.r,
                               backgroundColor: Colors.white,
                               backgroundImage: controller.imageFile == null
                                   ? AssetImage('assets/user.png')
@@ -44,26 +45,26 @@ class AddGateKeeper extends GetView {
                                     ),
                             ),
                             Positioned(
-                              left: 70,
-                              top: 70,
+                              left: 65.w,
+                              top: 65.h,
                               child: InkWell(
                                 onTap: () {
                                   showModalBottomSheet(
                                       context: context,
                                       builder: (context) {
                                         return Container(
-                                          height: 100.0,
-                                          width:
-                                              MediaQuery.of(context).size.width,
+                                          height: 100.0.h,
                                           margin: EdgeInsets.symmetric(
-                                              horizontal: 20, vertical: 20),
+                                              horizontal: 20.w, vertical: 20.w),
                                           child: Column(
                                             children: <Widget>[
                                               Text(
                                                 'Choose Profile Photo',
-                                                style: TextStyle(fontSize: 20),
+                                                style: TextStyle(
+                                                    fontSize:
+                                                        ScreenUtil().setSp(20)),
                                               ),
-                                              SizedBox(height: 20),
+                                              20.ph,
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
@@ -105,15 +106,13 @@ class AddGateKeeper extends GetView {
                                 child: Icon(
                                   Icons.camera_alt,
                                   color: primaryColor,
-                                  size: 28,
+                                  size: 30.w,
                                 ),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.05,
-                        ),
+                        31.96.ph,
                         MyTextFormField(
                           controller: controller.fnameController,
                           validator: emptyStringValidator,
@@ -162,9 +161,7 @@ class AddGateKeeper extends GetView {
                           hintText: 'Enter Password',
                           labelText: 'Password',
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.05,
-                        ),
+                       56.ph,
                         MyButton(
                           onPressed: controller.isLoading
                               ? null
@@ -201,12 +198,12 @@ class AddGateKeeper extends GetView {
                           color: primaryColor,
                           name: 'Save',
                           outlinedBorder: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0),
+                            borderRadius: BorderRadius.circular(16.0.r),
                           ),
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.05,
-                        ),
+                       32.ph,
+                        UpIcon(),
+                        18.2.ph,
                       ],
                     ),
                   ),

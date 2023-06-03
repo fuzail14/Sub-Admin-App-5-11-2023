@@ -497,6 +497,11 @@ class GateKeeperScreen extends GetView {
                                               .toString(),
                                       mobileno: snapshot.data![index].mobileno
                                           .toString(),
+                                      DeleteDialogPress: () {
+                                        controller.deleteGateKeeperApi(
+                                            snapshot.data![index].gatekeeperid,
+                                            controller.userdata.bearerToken!);
+                                      },
                                     ));
                               },
                               itemCount: snapshot.data!.length,

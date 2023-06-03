@@ -237,6 +237,7 @@ class ViewResidents extends GetView {
                                             .toString(),
                                     mobileno: snapshot.data![index].mobileno
                                         .toString(),
+                                    showButton: false,
                                   ));
                             },
                             itemCount: snapshot.data!.length,

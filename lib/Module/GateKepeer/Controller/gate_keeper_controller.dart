@@ -79,6 +79,10 @@ class GateKeeperController extends GetxController {
       //listOfSubAdmi.clear();
 
       viewGatekeepersApi(gatekeeperid, userdata.bearerToken!);
+
+      Get.back();
+
+      update();
     }
     update();
   }

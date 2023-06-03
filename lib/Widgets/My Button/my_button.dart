@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../Constants/constants.dart';
 
@@ -34,24 +35,27 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: height,
+    return 
+    
+    SizedBox(
+      width: width ?? 180.26.w,
+      height: height ?? 43.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+            
             elevation: elevation ?? 5,
             shape: outlinedBorder ??
                 RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14.0)),
+                    borderRadius: BorderRadius.circular(16.0.r)),
             backgroundColor: color ?? primaryColor),
         child: Text(
           name,
           maxLines: maxLines ?? 1,
           style: GoogleFonts.ubuntu(
               color: textColor ?? Colors.white,
-              fontWeight: fontWeight,
+              fontWeight: fontWeight ?? FontWeight.w400,
               letterSpacing: letterSpacing,
-              fontSize: fontSize),
+              fontSize: fontSize ?? ScreenUtil().setSp(15)),
         ),
         onPressed: onPressed,
       ),
