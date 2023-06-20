@@ -6,7 +6,7 @@ import 'package:http/http.dart' as Http;
 import 'package:societyadminapp/Routes/set_routes.dart';
 
 import '../../../../Constants/api_routes.dart';
-import '../../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
 
 class AddSocietyBuildingFloorsController extends GetxController {
   var data = Get.arguments;

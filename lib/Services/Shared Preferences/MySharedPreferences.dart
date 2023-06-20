@@ -1,7 +1,8 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Constants/shared_preferences_constants.dart';
-import '../../Module/Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 
 class MySharedPreferences {
   static setUserData({required User user}) async {

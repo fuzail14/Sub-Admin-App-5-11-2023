@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:societyadminapp/Module/Measurements/Controller/add_measurements_controller.dart';
 import 'package:societyadminapp/Routes/set_routes.dart';
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 import 'package:societyadminapp/Widgets/My%20Button/my_button.dart';
+
 import '../../../Constants/constants.dart';
 
 class AddMeasurements extends GetView {
@@ -20,11 +19,8 @@ class AddMeasurements extends GetView {
         builder: (controller) {
           return SafeArea(
             child: WillPopScope(
-              onWillPop: () async
-              {
-
-                await   Get.offNamed(measurementview,
-                    arguments: controller.user);
+              onWillPop: () async {
+                await Get.offNamed(measurementview, arguments: controller.user);
 
                 return true;
               },
@@ -50,7 +46,8 @@ class AddMeasurements extends GetView {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Property Type',
@@ -61,7 +58,8 @@ class AddMeasurements extends GetView {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * .4,
+                                    width:
+                                        MediaQuery.of(context).size.width * .4,
                                     child: DropdownButton<String>(
                                         onTap: () {
                                           controller.measurements_types.clear();
@@ -79,14 +77,17 @@ class AddMeasurements extends GetView {
                                           controller.setPropertyVal(val);
                                           print(controller.propertyVal);
 
-                                          if (controller.propertyVal == 'house') {
-                                            controller.measurements_types.clear();
+                                          if (controller.propertyVal ==
+                                              'house') {
+                                            controller.measurements_types
+                                                .clear();
                                             controller.measurements_types
                                                 .addAll(['marla', 'kanal']);
                                             controller.clearText();
                                           } else if (controller.propertyVal ==
                                               'apartment') {
-                                            controller.measurements_types.clear();
+                                            controller.measurements_types
+                                                .clear();
                                             controller.measurements_types
                                                 .add('sqft');
                                             controller.clearText();
@@ -96,7 +97,8 @@ class AddMeasurements extends GetView {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Unit Type',
@@ -107,7 +109,8 @@ class AddMeasurements extends GetView {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * .4,
+                                    width:
+                                        MediaQuery.of(context).size.width * .4,
                                     child: DropdownButton<String>(
                                         isExpanded: true,
                                         value: controller.unitVal,
@@ -131,7 +134,8 @@ class AddMeasurements extends GetView {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Service Charges',
@@ -142,16 +146,17 @@ class AddMeasurements extends GetView {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * .4,
+                                    width:
+                                        MediaQuery.of(context).size.width * .4,
                                     child: TextFormField(
-                                      onChanged: (val) {
-                                        controller.calculate(val);
-
-                                        if (controller
-                                            .chargesController.text.isEmpty) {
-                                          controller.clearText();
-                                        }
-                                      },
+                                      // onChanged: (val) {
+                                      //   // controller.calculate(val);
+                                      //
+                                      //   if (controller
+                                      //       .chargesController.text.isEmpty) {
+                                      //     controller.clearText();
+                                      //   }
+                                      // },
                                       validator: emptyStringValidator,
                                       controller: controller.chargesController,
                                       keyboardType: TextInputType.number,
@@ -166,35 +171,8 @@ class AddMeasurements extends GetView {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Charges After Due Date',
-                                    style: GoogleFonts.ubuntu(
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width * .4,
-                                    child: TextFormField(
-                                      validator: emptyStringValidator,
-                                      controller: controller
-                                          .chargesAfterDueDateController,
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        fillColor: Colors.white10,
-                                        filled: true,
-                                        border: InputBorder.none,
-                                        hintText: 'Charges After Due Date',
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Late Charges',
@@ -205,11 +183,12 @@ class AddMeasurements extends GetView {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * .4,
+                                    width:
+                                        MediaQuery.of(context).size.width * .4,
                                     child: TextFormField(
                                       validator: emptyStringValidator,
-                                      controller: controller
-                                          .lateChargesController,
+                                      controller:
+                                          controller.lateChargesController,
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                         fillColor: Colors.white10,
@@ -222,7 +201,8 @@ class AddMeasurements extends GetView {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'App Charges',
@@ -233,10 +213,12 @@ class AddMeasurements extends GetView {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * .4,
+                                    width:
+                                        MediaQuery.of(context).size.width * .4,
                                     child: TextFormField(
                                       validator: emptyStringValidator,
-                                      controller: controller.appChargesController,
+                                      controller:
+                                          controller.appChargesController,
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                         fillColor: Colors.white10,
@@ -249,7 +231,8 @@ class AddMeasurements extends GetView {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Tax',
@@ -260,7 +243,8 @@ class AddMeasurements extends GetView {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * .4,
+                                    width:
+                                        MediaQuery.of(context).size.width * .4,
                                     child: TextFormField(
                                       validator: emptyStringValidator,
                                       controller: controller.taxController,
@@ -270,33 +254,6 @@ class AddMeasurements extends GetView {
                                         filled: true,
                                         border: InputBorder.none,
                                         hintText: 'Tax',
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Bed Rooms',
-                                    style: GoogleFonts.ubuntu(
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width * .4,
-                                    child: TextFormField(
-                                      validator: emptyStringValidator,
-                                      controller: controller.bedRoomsController,
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        fillColor: Colors.white10,
-                                        filled: true,
-                                        border: InputBorder.none,
-                                        hintText: 'BedRooms',
                                       ),
                                     ),
                                   )
@@ -316,12 +273,14 @@ class AddMeasurements extends GetView {
                                           ),
                                         ),
                                         SizedBox(
-                                          width:
-                                              MediaQuery.of(context).size.width *
-                                                  .4,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .4,
                                           child: TextFormField(
                                             validator: emptyStringValidator,
-                                            controller: controller.areaController,
+                                            controller:
+                                                controller.areaController,
                                             keyboardType: TextInputType.number,
                                             decoration: InputDecoration(
                                               fillColor: Colors.white10,
@@ -344,13 +303,14 @@ class AddMeasurements extends GetView {
                                     ? null
                                     : () async {
                                         if (controller.propertyVal == null) {
-                                          Get.snackbar(
-                                              'Required', 'Select Property Type');
+                                          Get.snackbar('Required',
+                                              'Select Property Type');
                                         } else if (controller.unitVal == null) {
                                           Get.snackbar(
                                               'Required', 'Select Unit Type');
                                         } else {
-                                          if (_formKey.currentState!.validate()) {
+                                          if (_formKey.currentState!
+                                              .validate()) {
                                             await controller.addMeasurementApi(
                                                 userid: controller.user.userid!,
                                                 bearerToken: controller
@@ -358,8 +318,6 @@ class AddMeasurements extends GetView {
                                                     .toString(),
                                                 propertyType:
                                                     controller.propertyVal!,
-                                                bedrooms: controller
-                                                    .bedRoomsController.text,
                                                 charges: controller
                                                     .chargesController.text,
                                                 unitType: controller.unitVal!,
@@ -367,9 +325,8 @@ class AddMeasurements extends GetView {
                                                     .areaController.text,
                                                 appCharges: controller
                                                     .appChargesController.text,
-                                                serviceChargesAfterDueDate: controller
-                                                    .chargesAfterDueDateController
-                                                    .text,lateCharges: controller.lateChargesController.text,
+                                                lateCharges: controller
+                                                    .lateChargesController.text,
                                                 tax: controller
                                                     .taxController.text);
                                             FocusManager.instance.primaryFocus

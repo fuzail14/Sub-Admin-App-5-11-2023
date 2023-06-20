@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
+
 import '../../../../Constants/constants.dart';
 import '../../../../Routes/set_routes.dart';
+import '../../../../Widgets/My Back Button/my_back_button.dart';
 import '../../../../Widgets/My Button/my_button.dart';
 import '../Controller/add_local_building_apartment_controller.dart';
 
 class AddLocalBuildingApartmentsScreen extends GetView {
-  GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class AddLocalBuildingApartmentsScreen extends GetView {
                 body: Padding(
                   padding: EdgeInsets.only(top: 5.0, left: 10.0, right: 10.0),
                   child: Form(
-                    key: _formKey,
+                    key: controller.formKey,
                     child: ListView(
                       children: <Widget>[
                         MyBackButton(
@@ -106,8 +107,7 @@ class AddLocalBuildingApartmentsScreen extends GetView {
                         ),
                         MyButton(
                           onPressed: () {
-                            // print(controller.user.userid);
-                            // print(controller.user.bearerToken);
+                            
 
                             controller.addApartmentsApi(
                               bearerToken: controller.user.bearerToken!,

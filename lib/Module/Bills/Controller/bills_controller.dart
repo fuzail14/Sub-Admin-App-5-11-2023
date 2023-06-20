@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
 
-import '../../Login/Model/User.dart' as U;
+
+
+
+import '../../../Model/User.dart' as U;
 
 class BillsController extends GetxController {
   var userdata = Get.arguments;

@@ -6,8 +6,10 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
+import '../../../Model/User.dart';
+
 import '../../../Routes/set_routes.dart';
-import '../../Login/Model/User.dart';
+
 class AddEventScreenController extends GetxController {
 
   var user = Get.arguments;
@@ -100,7 +102,8 @@ update();
       print(data);
       print(response.statusCode);
 
-      Get.offAndToNamed(eventsscreen,arguments: user);
+      Get.offNamed(eventsscreen,arguments: user);
+
 
       Get.snackbar("Event Add Successfully", "");
     }

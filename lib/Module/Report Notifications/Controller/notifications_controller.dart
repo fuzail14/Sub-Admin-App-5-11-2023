@@ -6,7 +6,8 @@ import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
 import '../../../Constants/constants.dart';
-import '../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import '../Model/Notification.dart';
 
 class NotificationsController extends GetxController {

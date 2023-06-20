@@ -5,8 +5,9 @@ import 'package:http/http.dart' as Http;
 import 'package:societyadminapp/Routes/set_routes.dart';
 import '../../../Constants/api_routes.dart';
 import '../../../Constants/constants.dart';
+import '../../../Model/User.dart';
 import '../../../Widgets/My Button/my_button.dart';
-import '../../Login/Model/User.dart';
+
 import '../Model/Resident.dart';
 
 class ViewResidentController extends GetxController {

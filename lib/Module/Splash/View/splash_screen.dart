@@ -11,7 +11,8 @@ import 'package:societyadminapp/Constants/constants.dart';
 import 'package:societyadminapp/Routes/set_routes.dart';
 import 'package:societyadminapp/Services/Shared%20Preferences/MySharedPreferences.dart';
 
-import '../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

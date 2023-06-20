@@ -11,7 +11,8 @@ import 'package:societyadminapp/Services/Shared%20Preferences/MySharedPreference
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 import '../../../../Routes/set_routes.dart';
 import '../../../../Widgets/Loader/loader.dart';
-import '../../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import '../Controller/local_building_floors_controller.dart';
 
 class LocalBuildingFloorsScreen extends GetView {

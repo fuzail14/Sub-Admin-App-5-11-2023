@@ -11,7 +11,8 @@ import 'package:societyadminapp/Module/UnVerifiedResidents/Model/phases.dart';
 import 'package:societyadminapp/Module/UnVerifiedResidents/Model/Resident Model/HouseResident.dart' as HouseResident;
 import 'package:societyadminapp/Routes/set_routes.dart';
 import '../../../Constants/api_routes.dart';
-import '../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import 'package:http/http.dart' as Http;
 
 class HouseResidentVerificationController extends GetxController {

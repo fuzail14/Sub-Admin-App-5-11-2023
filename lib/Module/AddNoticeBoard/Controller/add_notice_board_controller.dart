@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 import 'package:societyadminapp/Routes/set_routes.dart';
 import '../../../Constants/api_routes.dart';
-import '../../Login/Model/User.dart';
+import '../../../Model/User.dart';
+
 
 class AddNoticeBoardScreenController extends GetxController {
   final formKey = new GlobalKey<FormState>();
@@ -112,7 +113,8 @@ class AddNoticeBoardScreenController extends GetxController {
     );
 
     if (response.statusCode == 200) {
-      Get.offAndToNamed(noticeboardscreen, arguments: user);
+      Get.offNamed(noticeboardscreen, arguments: user);
+
       Get.snackbar("notice Add Successfully", "");
     }
     else if (response.statusCode == 403) {

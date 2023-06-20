@@ -8,6 +8,7 @@ import 'package:societyadminapp/Constants/api_routes.dart';
 import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 import '../../../Constants/constants.dart';
+import '../../../Routes/set_routes.dart';
 import '../../../Widgets/DetailShownDialogBox/Detail_shown_dialog_box.dart';
 import '../../../Widgets/ResidentNGateKeeperViewCard/resident_n_gatekeeper_view_card.dart';
 import '../Controller/view_residents_controller.dart';
@@ -17,13 +18,21 @@ class ViewResidents extends GetView {
   Widget build(BuildContext context) {
     return GetBuilder<ViewResidentController>(
       init: ViewResidentController(),
-      builder: (controller) => SafeArea(
+      builder: (controller) => WillPopScope(
+        onWillPop: () async {
+          Get.offNamed(homescreen, arguments: controller.user);
+
+          return true;
+        },
         child: Scaffold(
           backgroundColor: HexColor('#F5F5F5'),
           body: Column(
             children: [
               MyBackButton(
                 text: 'Residents',
+                onTap: () {
+                  Get.offNamed(homescreen, arguments: controller.user);
+                },
               ),
               Expanded(
                 child: FutureBuilder(
@@ -42,8 +51,8 @@ class ViewResidents extends GetView {
                                         context: context,
                                         builder: (context) {
                                           return Dialog(
-                                            insetAnimationCurve:
-                                                Curves.easeInOutCubicEmphasized,
+                                            insetAnimationCurve: Curves
+                                                .easeInOutCubicEmphasized,
                                             insetAnimationDuration:
                                                 Duration(seconds: 3),
                                             shape: RoundedRectangleBorder(
@@ -60,26 +69,32 @@ class ViewResidents extends GetView {
                                                     Column(
                                                       children: [
                                                         Text(
-                                                          snapshot.data![index]
+                                                          snapshot
+                                                                  .data![
+                                                                      index]
                                                                   .firstname +
                                                               " " +
                                                               snapshot
-                                                                  .data![index]
+                                                                  .data![
+                                                                      index]
                                                                   .lastname,
                                                           style: GoogleFonts
                                                               .montserrat(
                                                             color: HexColor(
                                                                 '#4D4D4D'),
                                                             fontWeight:
-                                                                FontWeight.w700,
+                                                                FontWeight
+                                                                    .w700,
                                                             fontSize:
                                                                 ScreenUtil()
-                                                                    .setSp(18),
+                                                                    .setSp(
+                                                                        18),
                                                           ),
                                                         ),
                                                         10.ph,
                                                         Text(
-                                                          snapshot.data![index]
+                                                          snapshot
+                                                              .data![index]
                                                               .mobileno,
                                                           style: GoogleFonts.ubuntu(
                                                               color: HexColor(
@@ -138,7 +153,8 @@ class ViewResidents extends GetView {
                                                             'assets/cnicsvg.svg',
                                                         heading: 'CNIC',
                                                         text: snapshot
-                                                            .data![index].cnic),
+                                                            .data![index]
+                                                            .cnic),
                                                     // if (snapshot.data![index]
                                                     //         .residenttype ==
                                                     //     'Rental') ...[
@@ -229,7 +245,8 @@ class ViewResidents extends GetView {
                                   },
                                   child: ResidentsNGateKeeperViewCard(
                                     image: Api.imageBaseUrl +
-                                        snapshot.data![index].image.toString(),
+                                        snapshot.data![index].image
+                                            .toString(),
                                     name: snapshot.data![index].firstname
                                             .toString() +
                                         " " +

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,23 +10,24 @@ import 'package:societyadminapp/Routes/set_routes.dart';
 import '../../../Constants/constants.dart';
 import '../../../Widgets/Event&NoticeBoardViewCard/event_n_noticeboard_view_card.dart';
 import '../../../Widgets/My Back Button/my_back_button.dart';
-import '../../../Widgets/My Dialog Box/my_dialog_box.dart';
 
 class NoticeBoardScreen extends GetView {
-  NoticeBoardController noticeBoardController =
-      Get.put(NoticeBoardController());
   @override
   Widget build(BuildContext context) {
     return GetBuilder<NoticeBoardController>(
       init: NoticeBoardController(),
-      builder: (controller) => SafeArea(
+      builder: (controller) => WillPopScope(
+        onWillPop: () async {
+          Get.offNamed(homescreen, arguments: controller.user);
+          return true;
+        },
         child: Scaffold(
             floatingActionButton: IconButton(
-                padding: EdgeInsets.only(top: 85),
+                padding: EdgeInsets.only(top: 85.h),
                 iconSize: MediaQuery.of(context).size.height * 0.065,
                 icon: SvgPicture.asset('assets/floatingbutton.svg'),
                 onPressed: () {
-                  Get.offAndToNamed(addnoticeboardscreen,
+                  Get.offNamed(addnoticeboardscreen,
                       arguments: controller.user);
                 }),
             backgroundColor: Colors.white,
@@ -32,6 +35,9 @@ class NoticeBoardScreen extends GetView {
               children: [
                 MyBackButton(
                   text: 'NoticeBoard',
+                  onTap: () {
+                    Get.offNamed(homescreen, arguments: controller.user);
+                  },
                 ),
                 Expanded(
                   child: FutureBuilder(
@@ -40,11 +46,9 @@ class NoticeBoardScreen extends GetView {
                         if (snapshot.hasData) {
                           if (snapshot.data != null &&
                               snapshot.data!.length != 0) {
-                            return Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 90),
-                              child: ListView.builder(
-                                  itemBuilder: (context, index) {
-                                    return EventnNoticeBoardViewCard(
+                            return ListView.builder(
+                                itemBuilder: (context, index) {
+                                  return EventnNoticeBoardViewCard(
                                       title: snapshot.data![index].noticetitle
                                           .toString(),
                                       description: snapshot
@@ -72,13 +76,14 @@ class NoticeBoardScreen extends GetView {
                                       enddate: snapshot.data![index].enddate
                                           .toString(),
                                       gradientColors: [
-                                        HexColor("#677275"),
-                                        HexColor("#CFC8C6")
+                                        HexColor("#F2F2F2"),
+                                        HexColor("#F2F2F2")
                                       ],
-                                    );
-                                  },
-                                  itemCount: snapshot.data!.length),
-                            );
+                                      iconColor: HexColor('#FF9900'),
+                                      startDatecolor: HexColor('#FF9900'),
+                                      endDatecolor: HexColor('#FF9900'));
+                                },
+                                itemCount: snapshot.data!.length);
                           } else {
                             return Center(
                                 child: Text(

@@ -5,41 +5,36 @@ import 'package:http/http.dart' as Http;
 import 'package:societyadminapp/Module/Events/Model/Event.dart';
 import '../../../Constants/api_routes.dart';
 
+import '../../../Model/User.dart';
 import '../../../Routes/set_routes.dart';
-import '../../Login/Model/User.dart';
 
 class EventScreenController extends GetxController {
   final ImagePicker imagePicker = ImagePicker();
   var user = Get.arguments;
-  bool isSearch=false;
+  bool isSearch = false;
   late Future data;
   late final User userdata;
   String eventVal = 'Default';
-  var eventDropDownList = ['Newest', 'Oldest','Default'];
-
-
-
-
-
+  var eventDropDownList = ['Newest', 'Oldest', 'Default'];
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
 
-    userdata=user;
+    userdata = user;
     print(userdata);
-    data=viewEventsApi(userid: userdata.userid!, token: userdata.bearerToken!);
+    data =
+        viewEventsApi(userid: userdata.userid!, token: userdata.bearerToken!);
   }
+
   setEventVal(val) {
     eventVal = val;
     update();
   }
 
-     Future<Event>       viewEventsApi({ required int userid,required String token}
-
-
-    ) async {
+  Future<Event> viewEventsApi(
+      {required int userid, required String token}) async {
     print("${userid.toString()}");
     print(token);
 
@@ -54,29 +49,25 @@ class EventScreenController extends GetxController {
     var data = jsonDecode(response.body.toString());
 
 
-;
 
     if (response.statusCode == 200) {
-
-      return  Event.fromJson(data);
+      return Event.fromJson(data);
     }
 
     return Event.fromJson(data);
   }
 
-
-
-  Future<Event>        searchEventsApi({ required int userid,required String token,required String query}
-
-
-      ) async {
+  Future<Event> searchEventsApi(
+      {required int userid,
+      required String token,
+      required String query}) async {
     print("${userid.toString()}");
     print(token);
-print(query);
+    print(query);
 
-   isSearch=true;
+    isSearch = true;
     final response = await Http.get(
-      Uri.parse(Api.searchEvent + "/" + userid.toString()+"/"+query),
+      Uri.parse(Api.searchEvent + "/" + userid.toString() + "/" + query),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': "Bearer $token"
@@ -86,13 +77,10 @@ print(query);
     print(response.statusCode);
     var data = jsonDecode(response.body.toString());
 
-
     if (response.statusCode == 200) {
-
-
-      isSearch=false;
+      isSearch = false;
       update();
-      return  Event.fromJson(data);
+      return Event.fromJson(data);
     }
 
     return Event.fromJson(data);
@@ -108,42 +96,35 @@ print(query);
   // }
 
   void selectImages() async {
-
     final List<XFile>? selectedImages = await imagePicker.pickMultiImage();
 // selectedImages!.clear();
 
     if (selectedImages!.isNotEmpty) {
+      print(selectedImages);
 
-print(selectedImages);
+      Map<String, String> headers = {
+        "Authorization": "Bearer 6|PY7c88dIPMxkyIT34ZzhYFtEhOhY7nVzDGu1xLpF"
+      };
 
-  Map<String, String> headers =
+      var request =
+          Http.MultipartRequest('POST', Uri.parse(Api.addEventImages));
+      request.headers.addAll(headers);
 
-  {"Authorization": "Bearer 6|PY7c88dIPMxkyIT34ZzhYFtEhOhY7nVzDGu1xLpF"};
-
-  var request = Http.MultipartRequest('POST', Uri.parse(Api.addEventImages));
-  request.headers.addAll(headers);
-
-
-      for(int i=0 ;i<selectedImages.length;i++) {
-
-        request.files.add(await Http.MultipartFile.fromPath('image', selectedImages[i].path));
+      for (int i = 0; i < selectedImages.length; i++) {
+        request.files.add(
+            await Http.MultipartFile.fromPath('image', selectedImages[i].path));
         request.fields['eventid'] = 5.toString();
-
       }
-    var responsed = await request.send();
-    var response = await Http.Response.fromStream(responsed);
-    print(response.statusCode);
-    // print(response.body);
-    if (response.statusCode == 200) {
-
-      var data = jsonDecode(response.body.toString());
-      print(data);
+      var responsed = await request.send();
+      var response = await Http.Response.fromStream(responsed);
+      print(response.statusCode);
       // print(response.body);
-      Get.snackbar("Images",'Images Add Successfully');
-
-    }
-
-
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body.toString());
+        print(data);
+        // print(response.body);
+        Get.snackbar("Images", 'Images Add Successfully');
+      }
     }
     update();
   }
@@ -165,12 +146,11 @@ print(selectedImages);
     print('my data.......$mydata');
 
     if (response.statusCode == 200) {
-      this.data=viewEventsApi(userid: userdata.userid!, token: userdata.bearerToken!);
+      this.data =
+          viewEventsApi(userid: userdata.userid!, token: userdata.bearerToken!);
       Get.back();
       update();
-
     }
     update();
   }
-
 }

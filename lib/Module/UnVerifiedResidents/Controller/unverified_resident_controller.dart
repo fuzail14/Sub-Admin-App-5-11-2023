@@ -4,7 +4,8 @@ import 'package:http/http.dart' as Http;
 import 'package:societyadminapp/Module/UnVerifiedResidents/Model/Resident%20Model/ApartmentResidentModel.dart';
 import 'package:societyadminapp/Module/UnVerifiedResidents/Model/Resident%20Model/HouseResident.dart';
 import '../../../Constants/api_routes.dart';
-import '../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import '../Model/Resident Model/LocalBuildingApartmentResidentModel.dart';
 
 class UnVerifiedResidentController extends GetxController {

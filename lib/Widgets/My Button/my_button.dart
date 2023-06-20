@@ -16,6 +16,7 @@ class MyButton extends StatelessWidget {
   final Color? color;
   final Color? textColor;
   final int? maxLines;
+  final bool? loading;
   final void Function()? onPressed;
   const MyButton(
       {super.key,
@@ -31,32 +32,34 @@ class MyButton extends StatelessWidget {
       required this.name,
       this.color,
       this.maxLines,
-      this.onPressed});
+      this.onPressed,
+      this.loading = false});
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-    SizedBox(
+    return SizedBox(
       width: width ?? 180.26.w,
       height: height ?? 43.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            
             elevation: elevation ?? 5,
             shape: outlinedBorder ??
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.0.r)),
             backgroundColor: color ?? primaryColor),
-        child: Text(
-          name,
-          maxLines: maxLines ?? 1,
-          style: GoogleFonts.ubuntu(
-              color: textColor ?? Colors.white,
-              fontWeight: fontWeight ?? FontWeight.w400,
-              letterSpacing: letterSpacing,
-              fontSize: fontSize ?? ScreenUtil().setSp(15)),
-        ),
+        child: loading!
+            ? CircularProgressIndicator(
+                color: Colors.white,
+              )
+            : Text(
+                name,
+                maxLines: maxLines ?? 1,
+                style: GoogleFonts.ubuntu(
+                    color: textColor ?? Colors.white,
+                    fontWeight: fontWeight,
+                    letterSpacing: letterSpacing,
+                    fontSize: fontSize),
+              ),
         onPressed: onPressed,
       ),
     );

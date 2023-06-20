@@ -16,12 +16,9 @@ class MeasurementView extends StatelessWidget {
         init: MeasurementViewController(),
         builder: (controller) {
           return DefaultTabController(
-
             length: 2,
             child: SafeArea(
-
               child: Scaffold(
-
                 floatingActionButton: IconButton(
                     padding: EdgeInsets.only(top: 85),
                     iconSize: MediaQuery.of(context).size.height * 0.065,
@@ -33,7 +30,6 @@ class MeasurementView extends StatelessWidget {
                   children: [
                     MyBackButton(text: 'Measurement View'),
                     TabBar(
-
                       indicatorSize: TabBarIndicatorSize.tab,
                       indicatorColor: primaryColor,
                       tabs: [
@@ -47,8 +43,7 @@ class MeasurementView extends StatelessWidget {
                         ),
                       ],
                       labelColor: primaryColor,
-
-                      unselectedLabelColor:Colors. grey,
+                      unselectedLabelColor: Colors.grey,
                     ),
                     Expanded(
                       child: TabBarView(
@@ -69,9 +64,10 @@ class MeasurementView extends StatelessWidget {
                                       return Padding(
                                         padding: const EdgeInsets.all(6.0),
                                         child: SizedBox(
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  0.22,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.22,
                                           child: Card(
                                             child: Column(
                                               children: [
@@ -110,10 +106,10 @@ class MeasurementView extends StatelessWidget {
                                                 //   ),
                                                 // ),
                                                 Padding(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                          horizontal: 80,
-                                                          vertical: 6),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 80,
+                                                      vertical: 6),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -121,7 +117,8 @@ class MeasurementView extends StatelessWidget {
                                                     children: [
                                                       Text(
                                                         'Unit Type ',
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -130,9 +127,10 @@ class MeasurementView extends StatelessWidget {
                                                         ),
                                                       ),
                                                       Text(
-                                                        snapshot.data.data[index]
-                                                            .unit,
-                                                        style: GoogleFonts.ubuntu(
+                                                        snapshot.data
+                                                            .data[index].unit,
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -144,10 +142,10 @@ class MeasurementView extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                          horizontal: 80,
-                                                          vertical: 6),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 80,
+                                                      vertical: 6),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -155,7 +153,8 @@ class MeasurementView extends StatelessWidget {
                                                     children: [
                                                       Text(
                                                         'Service Charges ',
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -164,10 +163,11 @@ class MeasurementView extends StatelessWidget {
                                                         ),
                                                       ),
                                                       Text(
-                                                        snapshot.data.data[index]
-                                                            .charges
+                                                        snapshot.data
+                                                            .data[index].charges
                                                             .toString(),
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -178,46 +178,12 @@ class MeasurementView extends StatelessWidget {
                                                     ],
                                                   ),
                                                 ),
+
                                                 Padding(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                          horizontal: 80,
-                                                          vertical: 6),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        'Service Charges After Due Date ',
-                                                        style: GoogleFonts.ubuntu(
-                                                          fontStyle:
-                                                              FontStyle.normal,
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          fontSize: 12,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        snapshot.data.data[index]
-                                                            .chargesafterduedate
-                                                            .toString(),
-                                                        style: GoogleFonts.ubuntu(
-                                                          fontStyle:
-                                                              FontStyle.normal,
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          fontSize: 12,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                          horizontal: 80,
-                                                          vertical: 6),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 80,
+                                                      vertical: 6),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -225,7 +191,8 @@ class MeasurementView extends StatelessWidget {
                                                     children: [
                                                       Text(
                                                         'Tax',
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -234,10 +201,11 @@ class MeasurementView extends StatelessWidget {
                                                         ),
                                                       ),
                                                       Text(
-                                                        snapshot.data.data[index]
-                                                            .tax
+                                                        snapshot.data
+                                                            .data[index].tax
                                                             .toString(),
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -249,10 +217,10 @@ class MeasurementView extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                          horizontal: 80,
-                                                          vertical: 6),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 80,
+                                                      vertical: 6),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -260,7 +228,8 @@ class MeasurementView extends StatelessWidget {
                                                     children: [
                                                       Text(
                                                         'App Charges',
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -269,10 +238,13 @@ class MeasurementView extends StatelessWidget {
                                                         ),
                                                       ),
                                                       Text(
-                                                        snapshot.data.data[index]
+                                                        snapshot
+                                                            .data
+                                                            .data[index]
                                                             .appcharges
                                                             .toString(),
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -284,10 +256,10 @@ class MeasurementView extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                          horizontal: 80,
-                                                          vertical: 6),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 80,
+                                                      vertical: 6),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -295,7 +267,8 @@ class MeasurementView extends StatelessWidget {
                                                     children: [
                                                       Text(
                                                         'Area',
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -304,48 +277,19 @@ class MeasurementView extends StatelessWidget {
                                                         ),
                                                       ),
                                                       Text(
-                                                        snapshot.data.data[index]
+                                                        snapshot
+                                                                .data
+                                                                .data[index]
                                                                 .area
-                                                                .toString() +' '+
-                                                            snapshot.data
-                                                                .data[index].unit
+                                                                .toString() +
+                                                            ' ' +
+                                                            snapshot
+                                                                .data
+                                                                .data[index]
+                                                                .unit
                                                                 .toString(),
-                                                        style: GoogleFonts.ubuntu(
-                                                          fontStyle:
-                                                              FontStyle.normal,
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          fontSize: 12,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                          horizontal: 80,
-                                                          vertical: 6),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        'Bedrooms',
-                                                        style: GoogleFonts.ubuntu(
-                                                          fontStyle:
-                                                              FontStyle.normal,
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          fontSize: 12,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        snapshot.data.data[index]
-                                                            .bedrooms
-                                                            .toString(),
-                                                        style: GoogleFonts.ubuntu(
+                                                        style:
+                                                            GoogleFonts.ubuntu(
                                                           fontStyle:
                                                               FontStyle.normal,
                                                           fontWeight:
@@ -519,41 +463,6 @@ class MeasurementView extends StatelessWidget {
                                                           snapshot.data
                                                               .data[index].unit
                                                               .toString(),
-                                                      style: GoogleFonts.ubuntu(
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: 12,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 80,
-                                                        vertical: 6),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      'Bedrooms',
-                                                      style: GoogleFonts.ubuntu(
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: 12,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      snapshot.data.data[index]
-                                                          .bedrooms
-                                                          .toString(),
                                                       style: GoogleFonts.ubuntu(
                                                         fontStyle:
                                                             FontStyle.normal,

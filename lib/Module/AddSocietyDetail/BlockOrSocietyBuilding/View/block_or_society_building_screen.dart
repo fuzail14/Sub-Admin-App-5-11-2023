@@ -13,7 +13,7 @@ import 'package:societyadminapp/Services/Shared%20Preferences/MySharedPreference
 import 'package:societyadminapp/Widgets/Loader/loader.dart';
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 import '../../../../Routes/set_routes.dart';
-import '../../../Login/Model/User.dart';
+
 import '../Controller/block_or_society_building_controller.dart';
 
 class BlockOrSocietyBuilding extends GetView {

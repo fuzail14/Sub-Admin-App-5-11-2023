@@ -33,12 +33,14 @@ class ResidentialEmergencyScreen extends GetView {
                       ),
                       Expanded(
                         child: FutureBuilder(
-                            future: controller.viewVistorsDetailApi(
+                            future: controller.viewEmergencyApi(
                                 controller.userdata.userid!,
                                 controller.userdata.bearerToken!),
                             builder:
                                 (BuildContext context, AsyncSnapshot snapshot) {
+                              print(snapshot);
                               if (snapshot.hasData) {
+                                print(snapshot.hasData);
                                 if (snapshot.data.data != null &&
                                     snapshot.data.data!.length != 0) {
                                   return ListView.builder(

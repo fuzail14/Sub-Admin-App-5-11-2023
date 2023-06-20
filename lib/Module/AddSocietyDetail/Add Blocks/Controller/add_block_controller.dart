@@ -7,7 +7,8 @@ import 'package:societyadminapp/Routes/set_routes.dart';
 
 import '../../../../Constants/api_routes.dart';
 import '../../../../Services/Shared Preferences/MySharedPreferences.dart';
-import '../../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 
 class AddBlockController extends GetxController {
   var data = Get.arguments;

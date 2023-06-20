@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
-import '../../Login/Model/User.dart' as U;
+import '../../../../Model/User.dart' as U;
 import '../Model/BillModel.dart';
 
 class GeneratedHouseBillController extends GetxController {

@@ -5,7 +5,8 @@ import 'package:societyadminapp/Module/AddSocietyDetail/Blocks/Model/Blocks.dart
 
 import '../../../../Constants/api_routes.dart';
 import '../../../../Services/Shared Preferences/MySharedPreferences.dart';
-import '../../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import '../Model/SocietyBuildingApartment.dart';
 
 class SocietyBuildingApartmentController extends GetxController {

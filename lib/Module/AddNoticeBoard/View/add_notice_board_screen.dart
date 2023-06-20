@@ -8,6 +8,7 @@ import 'package:societyadminapp/Module/AddNoticeBoard/Controller/add_notice_boar
 import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 import '../../../Constants/constants.dart';
+import '../../../Routes/set_routes.dart';
 import '../../../Widgets/My Button/my_button.dart';
 import '../../../Widgets/My TextForm Field/my_textform_field.dart';
 import '../../../Widgets/UpIcon/up_icon.dart';
@@ -15,19 +16,28 @@ import '../../../Widgets/UpIcon/up_icon.dart';
 class AddNoticeBoardScreen extends GetView {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: GetBuilder<AddNoticeBoardScreenController>(
-            init: AddNoticeBoardScreenController(),
-            builder: (controller) {
-              return Form(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: GetBuilder<AddNoticeBoardScreenController>(
+          init: AddNoticeBoardScreenController(),
+          builder: (controller) {
+            return WillPopScope(
+              onWillPop: () async {
+                Get.offNamed(noticeboardscreen, arguments: controller.user);
+
+                return true;
+              },
+              child: Form(
                 key: controller.formKey,
                 child: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
                       MyBackButton(
                         text: 'Add Notice',
+                        onTap: () {
+                          Get.offNamed(noticeboardscreen,
+                              arguments: controller.user);
+                        },
                       ),
                       28.ph,
                       SvgPicture.asset(
@@ -145,9 +155,9 @@ class AddNoticeBoardScreen extends GetView {
                     ],
                   ),
                 ),
-              );
-            }),
-      ),
+              ),
+            );
+          }),
     );
   }
 }

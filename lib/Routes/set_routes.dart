@@ -96,3 +96,6 @@ const String bills = '/Bills';
 const String generatesocietyapartmentbills = '/GenerateSocietyApartmentBills';
 const String generatedsocietyapartmentbills = '/GeneratedSocietyApartmentBills';
 const String residentialEmergencyScreen = '/ResidentialEmergencyScreen';
+const String addFinanceManager = '/add-finance-manager';
+const String viewFinanceManager = '/view-finance-manager';
+const String updateFinanceManager = '/update-finance-manager';

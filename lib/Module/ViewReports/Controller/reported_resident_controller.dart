@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:get/get.dart';
 
 import '../../../Constants/api_routes.dart';
-import '../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import 'package:http/http.dart' as Http;
 
 import '../Model/ReportedResident.dart';

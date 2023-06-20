@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 import '../../../../Constants/api_routes.dart';
-import '../../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import '../Model/SocietyBuildingFloor.dart';
 
 class SocietyBuildingFloorsController extends GetxController {

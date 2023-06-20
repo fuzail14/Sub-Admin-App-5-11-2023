@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
-import 'package:societyadminapp/Routes/set_routes.dart';
 import '../../../../Constants/api_routes.dart';
 import '../../../../Services/Shared Preferences/MySharedPreferences.dart';
-import '../../../Login/Model/User.dart';
-import '../../SocietyBuildings/Model/society_building_model.dart';
+import '../../../../Model/User.dart';
+
+
 import '../Model/BlockBuilding.dart';
 
 class BlockBuildingController extends GetxController {

@@ -8,7 +8,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:societyadminapp/Routes/set_routes.dart';
 
 import '../../../Constants/api_routes.dart';
-import '../../Login/Model/User.dart';
+import '../../../Model/User.dart';
+
 
 class AddGateKepeerScreenController extends GetxController {
   final formKey = new GlobalKey<FormState>();
@@ -109,7 +110,7 @@ class AddGateKepeerScreenController extends GetxController {
       print(data);
       print(response.body);
       Get.snackbar("GateKeeper Register Successfully", "");
-      Get.offAndToNamed(gatekeeperscreen, arguments: user);
+      Get.offNamed(gatekeeperscreen, arguments: user);
     } else if (response.statusCode == 403) {
       isLoading = false;
       update();

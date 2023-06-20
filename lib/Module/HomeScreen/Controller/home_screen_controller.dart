@@ -1,17 +1,22 @@
 import 'dart:convert';
 
-import 'package:alarm/alarm.dart';
+//import 'package:alarm/alarm.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
-import '../../../Services/Notification Services/notification_services.dart';
-import '../../Login/Model/User.dart';
+
+import '../../../../Model/User.dart';
+
 import '../Model/myapimodel.dart';
+
 
 class HomeScreenController extends GetxController {
   late final User user;
   var userdata = Get.arguments;
+    var scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   PhasesList? selectedItem;
 
@@ -19,20 +24,20 @@ class HomeScreenController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    NotificationServices notificationServices = NotificationServices();
+    //NotificationServices notificationServices = NotificationServices();
     // notificationServices.requestNotification();
-    notificationServices.fireBaseInit();
-    notificationServices.setupInteractMessage();
-    notificationServices.getDeviceToken();
+    // notificationServices.fireBaseInit();
+    // notificationServices.setupInteractMessage();
+    // notificationServices.getDeviceToken();
 
     user = userdata;
 
     print("bidddd ${user.societyid}");
   }
 
-  setAlarm({required alarmSettings}) async {
-    await Alarm.set(alarmSettings: alarmSettings);
-  }
+  // setAlarm({required alarmSettings}) async {
+  //   await Alarm.set(alarmSettings: alarmSettings);
+  // }
 
   viewUnVerifiedResidentCountApi(
       {required int subadminid,

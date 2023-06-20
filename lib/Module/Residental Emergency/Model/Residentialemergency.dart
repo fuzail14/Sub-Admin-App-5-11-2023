@@ -76,7 +76,6 @@ class Resident {
     required this.cnic,
     required this.address,
     required this.mobileno,
-    required this.password,
     required this.roleid,
     required this.rolename,
     required this.image,
@@ -90,7 +89,6 @@ class Resident {
   late final String cnic;
   late final String address;
   late final String mobileno;
-  late final String password;
   late final int roleid;
   late final String rolename;
   late final String image;
@@ -105,7 +103,6 @@ class Resident {
     cnic = json['cnic'];
     address = json['address'];
     mobileno = json['mobileno'];
-    password = json['password'];
     roleid = json['roleid'];
     rolename = json['rolename'];
     image = json['image'];
@@ -122,7 +119,6 @@ class Resident {
     _data['cnic'] = cnic;
     _data['address'] = address;
     _data['mobileno'] = mobileno;
-    _data['password'] = password;
     _data['roleid'] = roleid;
     _data['rolename'] = rolename;
     _data['image'] = image;

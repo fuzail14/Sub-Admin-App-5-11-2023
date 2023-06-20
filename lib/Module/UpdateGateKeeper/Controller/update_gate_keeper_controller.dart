@@ -8,7 +8,8 @@ import 'package:societyadminapp/Routes/set_routes.dart';
 
 import '../../../Constants/api_routes.dart';
 import '../../GateKepeer/Model/gate_keeper_model.dart';
-import '../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 
 class UpdateGateKeeperController extends GetxController {
   var argument = Get.arguments;

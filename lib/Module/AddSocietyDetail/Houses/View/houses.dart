@@ -11,7 +11,7 @@ import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 import '../../../../Widgets/Loader/loader.dart';
 
 class Houses extends GetView<HouseController> {
-  HouseController houseController = HouseController();
+  
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HouseController>(

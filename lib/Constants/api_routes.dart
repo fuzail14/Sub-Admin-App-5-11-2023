@@ -97,4 +97,11 @@ class Api {
   static const String unverifiedLocalBuildingApartmentResident =
       baseUrl + "unverifiedlocalbuildingapartmentresident";
   static const String viewEmergency = baseUrl + "viewEmergency";
+   static const String financeManagerRegister =
+      baseUrl + "finance-manager/register";
+  static const String financeManagerView = baseUrl + "finance-manager/view/";
+  static const String financeManagerDelete =
+      baseUrl + "finance-manager/delete/";
+  static const String financeManagerUpdate =
+      baseUrl + "finance-manager/update/";
 }

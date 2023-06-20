@@ -7,7 +7,8 @@ import 'package:http/http.dart' as Http;
 import '../../../Constants/api_routes.dart';
 import '../../../Routes/set_routes.dart';
 import '../../HomeScreen/Controller/home_screen_controller.dart';
-import '../../Login/Model/User.dart';
+import '../../../Model/User.dart';
+
 class UpdateEventScreenController extends GetxController {
   final formKey = new GlobalKey<FormState>();
 
@@ -139,7 +140,8 @@ update();
       print(data);
       print(response.statusCode);
 
-      Get.offAndToNamed(eventsscreen,arguments: user);
+      Get.offNamed(eventsscreen,arguments: user);
+
 
       Get.snackbar("Event Update Successfully", "");
     }

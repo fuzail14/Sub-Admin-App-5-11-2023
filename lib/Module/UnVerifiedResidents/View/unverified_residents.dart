@@ -14,13 +14,20 @@ class UnVerifiedResident extends GetView {
   Widget build(BuildContext context) {
     return GetBuilder<UnVerifiedResidentController>(
       init: UnVerifiedResidentController(),
-      builder: (controller) => SafeArea(
+      builder: (controller) => WillPopScope(
+        onWillPop: () async {
+          Get.offNamed(homescreen, arguments: controller.user);
+          return true;
+        },
         child: Scaffold(
           backgroundColor: HexColor('#F5F5F5'),
           body: Column(
             children: [
               MyBackButton(
                 text: 'UnVerified Residents',
+                onTap: () {
+                  Get.offNamed(homescreen, arguments: controller.user);
+                },
               ),
               // MyText(name: 'House Residents'),
               SizedBox(
@@ -30,7 +37,8 @@ class UnVerifiedResident extends GetView {
               (controller.userdata.structureType == 4)
                   ? Expanded(
                       child: FutureBuilder(
-                          future: controller.viewUnVerifiedLocalBuildingApartmentResidentApi(
+                          future: controller
+                              .viewUnVerifiedLocalBuildingApartmentResidentApi(
                                   subadminid: controller.userdata.userid!,
                                   token: controller.userdata.bearerToken!,
                                   status: 0),
@@ -72,7 +80,9 @@ class UnVerifiedResident extends GetView {
                                   ),
                                 );
                               } else {
-                                return EmptyList(name: 'No Resident for Verification',);
+                                return EmptyList(
+                                  name: 'No Resident for Verification',
+                                );
                               }
                             } else if (snapshot.hasError) {
                               return Icon(Icons.error_outline);
@@ -82,63 +92,61 @@ class UnVerifiedResident extends GetView {
                           }),
                     )
                   : Expanded(
-                child: FutureBuilder(
-                    future: controller.viewUnVerifiedResidentApi(
-                        subadminid: controller.userdata.userid!,
-                        token: controller.userdata.bearerToken!,
-                        status: 0),
-                    builder: (context, AsyncSnapshot snapshot) {
-                      if (snapshot.hasData) {
-                        if (snapshot.data.data != null &&
-                            snapshot.data.data!.length != 0) {
-                          return SizedBox(
-                            height: 630,
-                            child: ListView.builder(
-                              itemBuilder: (context, index) {
-                                print(snapshot
-                                    .data.data[index].runtimeType);
+                      child: FutureBuilder(
+                          future: controller.viewUnVerifiedResidentApi(
+                              subadminid: controller.userdata.userid!,
+                              token: controller.userdata.bearerToken!,
+                              status: 0),
+                          builder: (context, AsyncSnapshot snapshot) {
+                            if (snapshot.hasData) {
+                              if (snapshot.data.data != null &&
+                                  snapshot.data.data!.length != 0) {
+                                return SizedBox(
+                                  height: 630,
+                                  child: ListView.builder(
+                                    itemBuilder: (context, index) {
+                                      print(snapshot
+                                          .data.data[index].runtimeType);
 
-                                return UnverifiedCard(
-                                  onTap: () {
-                                    Get.offNamed(
-                                        houseresidentverification,
-                                        arguments: [
-                                          controller.userdata,
-                                          snapshot.data.data[index]
-                                        ]);
-                                  },
-                                  imgUrl:Api. imageBaseUrl +
-                                      snapshot.data.data[index].image
-                                          .toString(),
-                                  name: snapshot
-                                      .data.data[index].firstname
-                                      .toString() +
-                                      ' ' +
-                                      snapshot
-                                          .data.data[index].lastname
-                                          .toString(),
-                                  mobileno: snapshot
-                                      .data.data[index].mobileno
-                                      .toString(),
+                                      return UnverifiedCard(
+                                        onTap: () {
+                                          Get.offNamed(
+                                              houseresidentverification,
+                                              arguments: [
+                                                controller.userdata,
+                                                snapshot.data.data[index]
+                                              ]);
+                                        },
+                                        imgUrl: Api.imageBaseUrl +
+                                            snapshot.data.data[index].image
+                                                .toString(),
+                                        name: snapshot
+                                                .data.data[index].firstname
+                                                .toString() +
+                                            ' ' +
+                                            snapshot.data.data[index].lastname
+                                                .toString(),
+                                        mobileno: snapshot
+                                            .data.data[index].mobileno
+                                            .toString(),
+                                      );
+                                    },
+                                    itemCount: snapshot.data.data.length,
+                                  ),
                                 );
-                              },
-                              itemCount: snapshot.data.data.length,
-                            ),
-                          );
-                        } else {
-                          return Container();
-                        }
-                      } else if (snapshot.hasError) {
-                        return Icon(Icons.error_outline);
-                      } else {
-                        return Loader();
-                      }
-                    }),
-              ),
-                    Expanded(
+                              } else {
+                                return Container();
+                              }
+                            } else if (snapshot.hasError) {
+                              return Icon(Icons.error_outline);
+                            } else {
+                              return Loader();
+                            }
+                          }),
+                    ),
+              Expanded(
                 child: FutureBuilder(
-                    future:
-                    controller.viewUnVerifiedApartmentResidentApi(
+                    future: controller.viewUnVerifiedApartmentResidentApi(
                         subadminid: controller.userdata.userid!,
                         token: controller.userdata.bearerToken!,
                         status: 0),
@@ -150,8 +158,7 @@ class UnVerifiedResident extends GetView {
                             height: 630,
                             child: ListView.builder(
                               itemBuilder: (context, index) {
-                                print(snapshot
-                                    .data.data[index].runtimeType);
+                                print(snapshot.data.data[index].runtimeType);
 
                                 return UnverifiedCard(
                                     onTap: () {
@@ -163,18 +170,14 @@ class UnVerifiedResident extends GetView {
                                           ]);
                                     },
                                     imgUrl: Api.imageBaseUrl +
-                                        snapshot
-                                            .data.data[index].image
+                                        snapshot.data.data[index].image
                                             .toString(),
-                                    name: snapshot.data.data[index]
-                                        .firstname
-                                        .toString() +
+                                    name: snapshot.data.data[index].firstname
+                                            .toString() +
                                         ' ' +
-                                        snapshot
-                                            .data.data[index].lastname
+                                        snapshot.data.data[index].lastname
                                             .toString(),
-                                    mobileno: snapshot
-                                        .data.data[index].mobileno
+                                    mobileno: snapshot.data.data[index].mobileno
                                         .toString());
                               },
                               itemCount: snapshot.data.data.length,

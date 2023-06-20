@@ -7,9 +7,9 @@ import 'package:societyadminapp/Constants/api_routes.dart';
 import 'package:societyadminapp/Module/AddSocietyDetail/Houses/Model/Houses.dart';
 
 import '../../../../Services/Shared Preferences/MySharedPreferences.dart';
-import '../../../Login/Model/SocietyModel.dart';
-import '../../../Login/Model/User.dart';
-import '../../Streets/Controller/street_controller.dart';
+import '../../../../Model/User.dart';
+
+
 
 class HouseController extends GetxController {
   var data = Get.arguments;

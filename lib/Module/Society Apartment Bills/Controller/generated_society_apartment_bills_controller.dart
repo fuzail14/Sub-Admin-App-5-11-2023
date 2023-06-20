@@ -5,7 +5,7 @@ import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
 import '../../House Bills/Model/BillModel.dart';
-import '../../Login/Model/User.dart' as U;
+import '../../../../Model/User.dart' as U;
 
 class GeneratedSocietyApartmentBillsController extends GetxController {
   var userdata = Get.arguments;

@@ -7,9 +7,8 @@ import 'package:societyadminapp/Module/AddSocietyDetail/Blocks/Controller/block_
 import 'package:societyadminapp/Widgets/Empty%20List/empty_list.dart';
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 import '../../../../Routes/set_routes.dart';
-import '../../../../Services/Shared Preferences/MySharedPreferences.dart';
+
 import '../../../../Widgets/Loader/loader.dart';
-import '../../../Login/Model/User.dart';
 
 class Blocks extends GetView {
   @override

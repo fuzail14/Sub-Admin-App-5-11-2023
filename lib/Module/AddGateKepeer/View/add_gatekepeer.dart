@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:societyadminapp/Module/AddGateKepeer/Controller/add_gate_kepeer_controller.dart';
 import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 import '../../../Constants/constants.dart';
+import '../../../Routes/set_routes.dart';
 import '../../../Widgets/My Back Button/my_back_button.dart';
 import '../../../Widgets/My Button/my_button.dart';
 import '../../../Widgets/My Password TextForm Field/my_password_textform_field.dart';
@@ -15,13 +16,19 @@ import '../../../Widgets/UpIcon/up_icon.dart';
 class AddGateKeeper extends GetView {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: GetBuilder<AddGateKepeerScreenController>(
-            init: AddGateKepeerScreenController(),
-            builder: (controller) {
-              return Form(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: GetBuilder<AddGateKepeerScreenController>(
+          init: AddGateKepeerScreenController(),
+          builder: (controller) {
+            return WillPopScope(
+              onWillPop: () async {
+                Get.offNamed(gatekeeperscreen, arguments: controller.user);
+
+
+                return true;
+              },
+              child: Form(
                 key: controller.formKey,
                 child: SingleChildScrollView(
                   child: Center(
@@ -30,6 +37,10 @@ class AddGateKeeper extends GetView {
                       children: <Widget>[
                         MyBackButton(
                           text: 'Add Gatekeeper',
+                          onTap: (){
+                            Get.offNamed(gatekeeperscreen, arguments: controller.user);
+                
+                          },
                         ),
                         25.35.ph,
                         Stack(
@@ -116,7 +127,7 @@ class AddGateKeeper extends GetView {
                         MyTextFormField(
                           controller: controller.fnameController,
                           validator: emptyStringValidator,
-                          hintText: 'First Name',
+                          hintText: 'First Name', 
                           labelText: 'Enter First Name',
                         ),
                         MyTextFormField(
@@ -161,7 +172,7 @@ class AddGateKeeper extends GetView {
                           hintText: 'Enter Password',
                           labelText: 'Password',
                         ),
-                       56.ph,
+                        56.ph,
                         MyButton(
                           onPressed: controller.isLoading
                               ? null
@@ -195,22 +206,21 @@ class AddGateKeeper extends GetView {
                                     }
                                   }
                                 },
-                          color: primaryColor,
                           name: 'Save',
                           outlinedBorder: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16.0.r),
                           ),
                         ),
-                       32.ph,
+                        32.ph,
                         UpIcon(),
                         18.2.ph,
                       ],
                     ),
                   ),
                 ),
-              );
-            }),
-      ),
+              ),
+            );
+          }),
     );
   }
 }

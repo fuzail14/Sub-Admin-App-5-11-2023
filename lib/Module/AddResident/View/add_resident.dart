@@ -11,7 +11,8 @@ import 'package:societyadminapp/Widgets/My%20Password%20TextForm%20Field/my_pass
 import 'package:societyadminapp/Widgets/My%20TextForm%20Field/my_textform_field.dart';
 import '../../../Constants/constants.dart';
 import '../../../Widgets/My Back Button/my_back_button.dart';
-import '../../Login/Model/User.dart';
+import '../../../Model/User.dart';
+
 
 class AddResident extends StatefulWidget {
   @override

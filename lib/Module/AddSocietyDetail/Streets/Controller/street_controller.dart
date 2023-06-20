@@ -5,7 +5,8 @@ import 'package:societyadminapp/Module/AddSocietyDetail/Streets/Model/Streets.da
 import 'package:http/http.dart' as Http;
 import 'package:societyadminapp/Services/Shared%20Preferences/MySharedPreferences.dart';
 import '../../../../Constants/api_routes.dart';
-import '../../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 
 class StreetsController extends GetxController {
   var data = Get.arguments;

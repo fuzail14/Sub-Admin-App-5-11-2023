@@ -1,19 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:societyadminapp/Constants/constants.dart';
-
-import 'package:societyadminapp/Module/AddSocietyDetail/Phases/Controller/phases_controller.dart';
-import 'package:societyadminapp/Services/Shared%20Preferences/MySharedPreferences.dart';
-import 'package:societyadminapp/Widgets/Loader/loader.dart';
 import 'package:societyadminapp/Widgets/My%20Back%20Button/my_back_button.dart';
 import '../../../../Routes/set_routes.dart';
-import '../../../Login/Model/User.dart';
+
 import '../Controller/phase_building_or_block_controller.dart';
 
 class PhaseBuildingOrBlock extends GetView {

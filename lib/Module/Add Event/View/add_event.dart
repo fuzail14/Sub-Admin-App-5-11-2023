@@ -5,6 +5,7 @@ import 'package:societyadminapp/Constants/constants.dart';
 import 'package:societyadminapp/Widgets/Extensions/extensions.dart';
 import 'package:societyadminapp/Widgets/My%20Button/my_button.dart';
 import 'package:societyadminapp/Widgets/My%20TextForm%20Field/my_textform_field.dart';
+import '../../../Routes/set_routes.dart';
 import '../../../Widgets/My Back Button/my_back_button.dart';
 import '../../../Widgets/UpIcon/up_icon.dart';
 import '../Controller/add_event_controller.dart';
@@ -12,19 +13,28 @@ import '../Controller/add_event_controller.dart';
 class AddEventsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: GetBuilder<AddEventScreenController>(
-            init: AddEventScreenController(),
-            builder: (controller) {
-              return Form(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: GetBuilder<AddEventScreenController>(
+          init: AddEventScreenController(),
+          builder: (controller) {
+            return WillPopScope(
+              onWillPop: () async {
+                Get.offNamed(eventsscreen, arguments: controller.user);
+
+                return true;
+              },
+              child: Form(
                 key: controller.formKey,
                 child: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
                       MyBackButton(
                         text: 'Add Event',
+                        onTap: () {
+                          Get.offNamed(eventsscreen,
+                              arguments: controller.user);
+                        },
                       ),
                       32.ph,
                       SvgPicture.asset(
@@ -100,9 +110,9 @@ class AddEventsScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              );
-            }),
-      ),
+              ),
+            );
+          }),
     );
   }
 }

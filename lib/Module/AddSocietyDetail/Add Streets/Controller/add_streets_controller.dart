@@ -7,7 +7,8 @@ import 'package:http/http.dart' as Http;
 import '../../../../Constants/api_routes.dart';
 import '../../../../Routes/set_routes.dart';
 import '../../../../Services/Shared Preferences/MySharedPreferences.dart';
-import '../../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 
 class AddStreetsController extends GetxController {
   var data = Get.arguments;

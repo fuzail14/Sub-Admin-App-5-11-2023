@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import '../../../Constants/api_routes.dart';
 
-import '../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import 'package:http/http.dart' as Http;
 
 import '../Model/Residentialemergency.dart';
@@ -22,7 +23,7 @@ class ResidentialEmergencyController extends GetxController {
     
   }
 
-  viewVistorsDetailApi(int subadminid, String token) async {
+  viewEmergencyApi(int subadminid, String token) async {
     final response = await Http.get(
       Uri.parse(Api.viewEmergency + "/" + subadminid.toString()),
       headers: <String, String>{
@@ -30,6 +31,7 @@ class ResidentialEmergencyController extends GetxController {
         'Authorization': "Bearer $token"
       },
     );
+    print(response.statusCode);
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

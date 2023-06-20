@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 
 import '../../../Constants/api_routes.dart';
-import '../../Login/Model/User.dart';
+import '../../../../Model/User.dart';
+
 import '../Model/MeasurementModel.dart';
 class MeasurementViewController extends GetxController {
   var userdata = Get.arguments;
