@@ -19,6 +19,8 @@ class HomeScreen extends GetView {
     return GetBuilder<HomeScreenController>(
       init: HomeScreenController(),
       builder: (controller) => Scaffold(
+        resizeToAvoidBottomInset: true,
+        
         key: controller.scaffoldKey,
         drawer: Drawer(
           child: ListView(

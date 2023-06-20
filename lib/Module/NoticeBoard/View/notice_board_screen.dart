@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +9,6 @@ import 'package:societyadminapp/Routes/set_routes.dart';
 import '../../../Constants/constants.dart';
 import '../../../Widgets/Event&NoticeBoardViewCard/event_n_noticeboard_view_card.dart';
 import '../../../Widgets/My Back Button/my_back_button.dart';
-
 class NoticeBoardScreen extends GetView {
   @override
   Widget build(BuildContext context) {

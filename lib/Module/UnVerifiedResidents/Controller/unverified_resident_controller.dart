@@ -17,10 +17,6 @@ class UnVerifiedResidentController extends GetxController {
     // TODO: implement onInit
     super.onInit();
     userdata = this.user;
-
-
-
-
   }
 
   Future<HouseResident> viewUnVerifiedResidentApi(
@@ -52,8 +48,8 @@ class UnVerifiedResidentController extends GetxController {
 
   Future<ApartmentResidentModel> viewUnVerifiedApartmentResidentApi(
       {required int subadminid,
-        required String token,
-        required int status}) async {
+      required String token,
+      required int status}) async {
     print(token);
 
     final response = await Http.get(
@@ -77,11 +73,11 @@ class UnVerifiedResidentController extends GetxController {
     return ApartmentResidentModel.fromJson(data);
   }
 
-
-  Future<LocalBuildingApartmentResidentModel> viewUnVerifiedLocalBuildingApartmentResidentApi(
-      {required int subadminid,
-        required String token,
-        required int status}) async {
+  Future<LocalBuildingApartmentResidentModel>
+      viewUnVerifiedLocalBuildingApartmentResidentApi(
+          {required int subadminid,
+          required String token,
+          required int status}) async {
     print(token);
 
     final response = await Http.get(
@@ -104,5 +100,4 @@ class UnVerifiedResidentController extends GetxController {
 
     return LocalBuildingApartmentResidentModel.fromJson(data);
   }
-
 }
